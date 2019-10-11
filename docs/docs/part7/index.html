@@ -354,86 +354,125 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;&#x6240;&#x6709;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;&#x6240;&#x6709;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x83B7;&#x53D6;&#x67D0;&#x4E2A;&#x8BBE;&#x5907;&#x7684;&#x6240;&#x6709;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;
-*
-* <span class="hljs-doctag">@param</span> deviceId       &#x8BBE;&#x5907;&#x7684;id
-* <span class="hljs-doctag">@param</span> resultCallBack &#x56DE;&#x8C03;
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getDeviceTimingList</span><span class="hljs-params">(<span class="hljs-keyword">int</span> deviceId, ResultCallBack&lt;ArrayList&lt;Timing&gt;&gt; resultCallBack)</span></span>;
+                                <h1 id="&#x8BBE;&#x5907;&#x5B9A;&#x65F6;&#x6A21;&#x5757;">&#x8BBE;&#x5907;&#x5B9A;&#x65F6;&#x6A21;&#x5757;</h1>
+<h2 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;&#x6240;&#x6709;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;&#x6240;&#x6709;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</h2>
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x5B9A;&#x65F6;
+ *  @param device               &#x83B7;&#x53D6;&#x7684;&#x5B9A;&#x65F6;&#x8BBE;&#x5907;
+ *  @param success              &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure              &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ example:
+ DeviceModel *device = [UserManager shareInstance].devicesArray[0];
+ [SYNetWorkManager getTimingListWithDevice:device success:^(SYResponeHCTimerInfoResult * _Nonnull result) {
+    if (result.hRA == 1) {
+     }
+ } failure:^(NSError * _Nonnull error) {
+ }];
+ */
++ (void)getTimingListWithDevice:(DeviceModel *)device success:(void (^)(SYResponeHCTimerInfoResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
-<h1 id="&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;">&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x6DFB;&#x52A0;&#x5B9A;&#x65F6;
-*
-* <span class="hljs-doctag">@param</span> deviceId       &#x8BBE;&#x5907;id
-* <span class="hljs-doctag">@param</span> name           &#x5B9A;&#x65F6;&#x7684;&#x540D;&#x79F0;
-* <span class="hljs-doctag">@param</span> repeat         &#x5FAA;&#x73AF;&#x6B21;&#x6570;
-*                       &#x5BF9;&#x4E8E; mode &#x4E3A;&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#xFF0C;&#x6BCF;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x4E00;&#x5468;&#x4E2D;&#x7684;&#x4E00;&#x5929;&#x3002;
-*                       &#x6700;&#x53F3;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x4F4E;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x4E00;&#xFF0C;&#x6700;&#x5DE6;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x9AD8;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x65E5;&#x3002;
-*                       0&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x4E0D;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
-*                       1&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
-*                       &#x4F8B;&#x5982;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x4E3A;&#x5468;&#x4E8C;&#x3001;&#x5468;&#x56DB;&#x3001;&#x5468;&#x4E94;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#xFF0C;&#x5219;&#x53EF;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;0011010
-* <span class="hljs-doctag">@param</span> time           &#x6267;&#x884C;&#x65F6;&#x95F4; &#x683C;&#x5F0F;&#x4E3A; 2018:01:01:01:01 yyyy:MM:dd:HH:mm
-* <span class="hljs-doctag">@param</span> actions        &#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C; &#x5982; {&quot;onoff&quot;:1,&quot;mode&quot;:2}
-* <span class="hljs-doctag">@param</span> resultCallBack &#x56DE;&#x8C03;&#x65F6;&#x95F4;
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addTiming</span><span class="hljs-params">(<span class="hljs-keyword">int</span> deviceId, String name, String repeat, String time, LinkedHashMap&lt;String, String&gt; actions, ResultCallBack resultCallBack)</span></span>;
+<h2 id="&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;">&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;</h2>
+<pre><code class="lang-Objective-C">/**
+ *  &#x6DFB;&#x52A0;&#x5B9A;&#x65F6;
+ *  @param device               &#x6DFB;&#x52A0;&#x5B9A;&#x65F6;&#x7684;&#x8BBE;&#x5907;
+ *  @param name                 &#x5B9A;&#x65F6;&#x7684;&#x540D;&#x79F0;
+ *  @param repeat               &#x5FAA;&#x73AF;&#x6B21;&#x6570;
+ *                                      &#x5BF9;&#x4E8E; mode &#x4E3A;&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#xFF0C;&#x6BCF;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x4E00;&#x5468;&#x4E2D;&#x7684;&#x4E00;&#x5929;&#x3002;
+ *                                      &#x6700;&#x53F3;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x4F4E;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x4E00;&#xFF0C;&#x6700;&#x5DE6;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x9AD8;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x65E5;&#x3002;
+ *                                      0&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x4E0D;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
+ *                                      1&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
+ *                                      &#x4F8B;&#x5982;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x4E3A;&#x5468;&#x4E8C;&#x3001;&#x5468;&#x56DB;&#x3001;&#x5468;&#x4E94;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#xFF0C;&#x5219;&#x53EF;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;0011010
+ *  @param action               &#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C; &#x5982; {&quot;onoff&quot;:1,&quot;mode&quot;:2}
+ *  @param year                 &#x5E74;
+ *  @param month                &#x6708;
+ *  @param day                  &#x65E5;
+ *  @param hour                 &#x65F6;
+ *  @param min                  &#x5206;
+ *  @param success              &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure              &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ example:
+ DeviceModel *device = [UserManager shareInstance].devicesArray[0];
+ NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@&quot;1&quot;,@&quot;onoff&quot;,@&quot;2&quot;,@&quot;mode&quot;, nil];
+ [SYNetWorkManager addTimingWithDevice:device name:@&quot;&#x5B9A;&#x65F6;4&quot; repeat:@&quot;1110000&quot; action:dict year:2019 month:9 day:2 hour:8 min:55 success:^(SYResponeHCIntegerResult * _Nonnull result) {
+    if (result.hRA == 1) {
+
+    }
+ } failure:^(NSError * _Nonnull error) {
+
+ }];
+ */
++ (void)addTimingWithDevice:(DeviceModel *)device name:(NSString *)name repeat:(NSString *)repeat  action:(NSDictionary *)action year:(int)year month:(int)month day:(int)day hour:(int)hour min:(int)min  success:(void (^)(SYResponeHCIntegerResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
-<h1 id="&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;">&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x66F4;&#x65B0;&#x5B9A;&#x65F6;
-*
-* <span class="hljs-doctag">@param</span> deviceId       &#x8BBE;&#x5907;id
-* <span class="hljs-doctag">@param</span> timingId       &#x5B9A;&#x65F6;id
-* <span class="hljs-doctag">@param</span> name           &#x5B9A;&#x65F6;&#x7684;&#x540D;&#x79F0;
-* <span class="hljs-doctag">@param</span> repeat         &#x5FAA;&#x73AF;&#x6B21;&#x6570;
-*                       &#x5BF9;&#x4E8E; mode &#x4E3A;&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#xFF0C;&#x6BCF;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x4E00;&#x5468;&#x4E2D;&#x7684;&#x4E00;&#x5929;&#x3002;
-*                       &#x6700;&#x53F3;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x4F4E;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x4E00;&#xFF0C;&#x6700;&#x5DE6;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x9AD8;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x65E5;&#x3002;
-*                       0&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x4E0D;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
-*                       1&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
-*                       &#x4F8B;&#x5982;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x4E3A;&#x5468;&#x4E8C;&#x3001;&#x5468;&#x56DB;&#x3001;&#x5468;&#x4E94;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#xFF0C;&#x5219;&#x53EF;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;0011010
-* <span class="hljs-doctag">@param</span> time           &#x6267;&#x884C;&#x65F6;&#x95F4; &#x683C;&#x5F0F;&#x4E3A; 2018:01:01:01:01 yyyy:MM:dd:HH:mm
-* <span class="hljs-doctag">@param</span> actions        &#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C; &#x5982; {&quot;onoff&quot;:1,&quot;mode&quot;:2}
-* <span class="hljs-doctag">@param</span> resultCallBack &#x56DE;&#x8C03;&#x65F6;&#x95F4;
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateTiming</span><span class="hljs-params">(<span class="hljs-keyword">int</span> deviceId, <span class="hljs-keyword">int</span> timingId, String name, String repeat, String time, LinkedHashMap&lt;String, String&gt; actions, ResultCallBack resultCallBack)</span></span>;
+<h2 id="&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;">&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</h2>
+<pre><code class="lang-Objective-C">/**
+ *  &#x7F16;&#x8F91;&#x5B9A;&#x65F6;
+ *  @param device               &#x6DFB;&#x52A0;&#x5B9A;&#x65F6;&#x7684;&#x8BBE;&#x5907;
+ *  @param timerId              &#x9700;&#x8981;&#x4FEE;&#x6539;&#x7684;&#x5B9A;&#x65F6;id
+ *  @param name                 &#x5B9A;&#x65F6;&#x7684;&#x540D;&#x79F0;
+ *  @param repeat               &#x5FAA;&#x73AF;&#x6B21;&#x6570;
+ *                              &#x5BF9;&#x4E8E; mode &#x4E3A;&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#xFF0C;&#x6BCF;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x4E00;&#x5468;&#x4E2D;&#x7684;&#x4E00;&#x5929;&#x3002;
+ *                              &#x6700;&#x53F3;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x4F4E;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x4E00;&#xFF0C;&#x6700;&#x5DE6;&#x8FB9;&#x7684;&#x4F4D;&#x4E3A;&#x9AD8;&#x4F4D;&#xFF0C;&#x4EE3;&#x8868;&#x5468;&#x65E5;&#x3002;
+ *                              0&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x4E0D;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
+ *                              1&#xFF1A;&#x6807;&#x8BC6;&#x8BE5;&#x5929;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x3002;
+ *                              &#x4F8B;&#x5982;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x4E3A;&#x5468;&#x4E8C;&#x3001;&#x5468;&#x56DB;&#x3001;&#x5468;&#x4E94;&#x9700;&#x8981;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#xFF0C;&#x5219;&#x53EF;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;0011010
+ *  @param action               &#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C; &#x5982; {&quot;onoff&quot;:1,&quot;mode&quot;:2}
+ *  @param year                 &#x5E74;
+ *  @param month                &#x6708;
+ *  @param day                  &#x65E5;
+ *  @param hour                 &#x65F6;
+ *  @param min                  &#x5206;
+ *  @param success              &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure              &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ example:
+ DeviceModel *device = [UserManager shareInstance].devicesArray[0];
+ NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@&quot;1&quot;,@&quot;onoff&quot;,@&quot;2&quot;,@&quot;mode&quot;, nil];
+ [SYNetWorkManager updateTimingWithDevice:device timerId:890 name:@&quot;&#x5B9A;&#x65F6;&#x70B8;&#x5F39;&quot; repeat:@&quot;0000000&quot; action:dict year:2019 month:10 day:10 hour:10 min:10 success:^(SYResponeHCIntegerResult * _Nonnull result) {
+    if (result.hRA == 1) {
+
+    }
+ } failure:^(NSError * _Nonnull error) {
+
+ }];
+ */
++ (void)updateTimingWithDevice:(DeviceModel *)device timerId:(NSInteger)timerId name:(NSString *)name repeat:(NSString *)repeat  action:(NSDictionary *)action year:(int)year month:(int)month day:(int)day hour:(int)hour min:(int)min  success:(void (^)(SYResponeHCIntegerResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
-<h1 id="&#x5220;&#x9664;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;">&#x5220;&#x9664;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x5220;&#x9664;&#x5B9A;&#x65F6;
-*
-* <span class="hljs-doctag">@param</span> timingId       &#x5B9A;&#x65F6;&#x7684;id
-* <span class="hljs-doctag">@param</span> resultCallBack &#x56DE;&#x8C03;
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteTiming</span><span class="hljs-params">(<span class="hljs-keyword">int</span> timingId, ResultCallBack resultCallBack)</span></span>;
+<h2 id="&#x5220;&#x9664;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;">&#x5220;&#x9664;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</h2>
+<pre><code class="lang-Objective-C">/**
+ *  &#x5220;&#x9664;&#x8BBE;&#x5907;&#x5B9A;&#x65F6;
+ *  @param timerId              &#x5B9A;&#x65F6;id
+ *  @param success              &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure              &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ example:
+ [SYNetWorkManager deleteTimingWithTimerId:890 success:^(SYResponeHCStringResult * _Nonnull result) {
+    if (result.hRA == 1) {
+
+    }
+ } failure:^(NSError * _Nonnull error) {
+
+ }];
+ */
++ (void)deleteTimingWithTimerId:(NSInteger)timerId success:(void (^)(SYResponeHCStringResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
-<h1 id="&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5F00;&#x542F;&#x548C;&#x5173;&#x95ED;&#x72B6;&#x6001;">&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5F00;&#x542F;&#x548C;&#x5173;&#x95ED;&#x72B6;&#x6001;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x4FEE;&#x6539;&#x5B9A;&#x65F6;&#x7684;&#x5F00;&#x542F;&#x5173;&#x95ED;&#x72B6;&#x6001;
-*
-* <span class="hljs-doctag">@param</span> timingId       &#x5B9A;&#x65F6;&#x7684;id
-* <span class="hljs-doctag">@param</span> status         1&#x5F00;&#x542F; 9&#x5173;&#x95ED;
-* <span class="hljs-doctag">@param</span> resultCallBack &#x56DE;&#x8C03;
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateTimingStatus</span><span class="hljs-params">(<span class="hljs-keyword">int</span> timingId, <span class="hljs-keyword">int</span> status, ResultCallBack resultCallBack)</span></span>;
+<h2 id="&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5F00;&#x542F;&#x548C;&#x5173;&#x95ED;&#x72B6;&#x6001;">&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5F00;&#x542F;&#x548C;&#x5173;&#x95ED;&#x72B6;&#x6001;</h2>
+<pre><code class="lang-Objective-C">/**
+ *  &#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x5B9A;&#x65F6;&#x72B6;&#x6001;
+ *  @param timerId              &#x5B9A;&#x65F6;id
+ *  @param status               &#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x7684;&#x72B6;&#x6001; &#xFF08; 1&#xFF1A;&#x6253;&#x5F00;&#xFF0C; 0&#xFF1A;&#x5173;&#x95ED;&#xFF09;
+ *  @param success              &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure              &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ example:
+ [SYNetWorkManager controlTimingStatusWithTimerId:891 status:0 success:^(SYResponeHCIntegerResult * _Nonnull result) {
+    if (result.hRA == 1) {
+    }
+ } failure:^(NSError * _Nonnull error) {
+
+ }];
+ */
++ (void)controlTimingStatusWithTimerId:(NSInteger)timerId status:(int)status success:(void (^)(SYResponeHCIntegerResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
-<h1 id="&#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x53D8;&#x5316;&#x65F6;&#x7684;&#x56DE;&#x8C03;">&#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x53D8;&#x5316;&#x65F6;&#x7684;&#x56DE;&#x8C03;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x76D1;&#x542C;&#x5B9A;&#x65F6;&#x53D8;&#x5316;
-* <span class="hljs-doctag">@param</span> onTimingChangedListener
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addTimingChangeListener</span><span class="hljs-params">(OnTimingChangedListener onTimingChangedListener)</span></span>;
-</code></pre>
-<h1 id="ontimingchangedlistener-&#x5B9A;&#x65F6;&#x53D8;&#x5316;&#x7684;&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#x7C7B;">OnTimingChangedListener &#x5B9A;&#x65F6;&#x53D8;&#x5316;&#x7684;&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#x7C7B;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* <span class="hljs-doctag">@param</span> did     &#x5B9A;&#x65F6;&#x53D1;&#x751F;&#x53D8;&#x66F4;&#x7684;&#x8BBE;&#x5907;id
-* <span class="hljs-doctag">@param</span> timings &#x53D1;&#x751F;&#x53D8;&#x66F4;&#x540E;&#x7684;&#x5B9A;&#x65F6;
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onTimingChanged</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did, List&lt;Timing&gt; timings)</span></span>;
-</code></pre>
-<h1 id="timing&#x6570;&#x636E;&#x6A21;&#x578B;">Timing&#x6570;&#x636E;&#x6A21;&#x578B;</h1>
+<h2 id="syresponetimermodel&#x6570;&#x636E;&#x6A21;&#x578B;&#x7C7B;">SYResponeTimerModel&#x6570;&#x636E;&#x6A21;&#x578B;&#x7C7B;</h2>
+<p>=======</p>
+<h1 id="syresponetimermodel&#x6570;&#x636E;&#x6A21;&#x578B;">SYResponeTimerModel&#x6570;&#x636E;&#x6A21;&#x578B;</h1>
 <table>
 <thead>
 <tr>
@@ -543,7 +582,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.设备定时","level":"1.8","depth":1,"next":{"title":"8.倒计时","level":"1.9","depth":1,"path":"part8/README.md","ref":"part8/README.md","articles":[]},"previous":{"title":"6.设备控制","level":"1.7","depth":1,"path":"part6/README.md","ref":"part6/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part7/README.md","mtime":"2019-08-16T08:25:49.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T08:36:13.014Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.设备定时","level":"1.8","depth":1,"next":{"title":"8.倒计时","level":"1.9","depth":1,"path":"part8/README.md","ref":"part8/README.md","articles":[]},"previous":{"title":"6.设备控制","level":"1.7","depth":1,"path":"part6/README.md","ref":"part6/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part7/README.md","mtime":"2019-08-22T09:26:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:15:34.670Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

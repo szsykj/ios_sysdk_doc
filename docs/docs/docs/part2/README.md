@@ -8,7 +8,7 @@
  * @param regionCode 区域代码
  * @param callBack   回调接口
  */
-void login(String account, String password,String regionCode, ResultCallBack<UserBean> callBack);
+void login(String account, String password,String regionCode, ResultCallBack<UserModel> callBack);
 ```
 
 #用户注册
@@ -22,7 +22,7 @@ void login(String account, String password,String regionCode, ResultCallBack<Use
  * @param regionCode 区域代码
  * @param callBack   回调接口
  */
-void register(String account, String password, String checkCode, String regionCode, ResultCallBack<UserBean> callBack);
+void register(String account, String password, String checkCode, String regionCode, ResultCallBack<UserModel> callBack);
 ```
 
 #获取注册验证码
@@ -123,7 +123,7 @@ void setFeedback(String content,String contactWay,ResultCallBack callBack);
 void getFeedback(ResultCallBack<List<FeedbackBean>> callBack);
 ```
 
-#用户模型
+#UserModel数据模型
 | 字段名称          | 类型  | 字段说明   |
 |---------------|-----|--------|
 | userId        | 数字  | 用户id   |
@@ -134,7 +134,7 @@ void getFeedback(ResultCallBack<List<FeedbackBean>> callBack);
 | phone         | 字符串 | 手机号码   |
 | hasCreateHome | 数字  | 是否创建家庭 |
 
-#意见反馈模型
+#FeedbackBean数据反馈模型
 | 字段名称            | 类型  | 字段说明                   |
 |-----------------|-----|------------------------|
 | feedbacId       | 数字  | 反馈ID                   |

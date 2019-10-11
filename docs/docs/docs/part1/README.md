@@ -21,8 +21,6 @@ implementation 'com.google.code.gson:gson:2.8.3'
 implementation 'org.litepal.android:java:3.0.0'
 implementation 'com.aliyun.dpa:oss-android-sdk:+'
 
-implementation 'com.jakewharton:butterknife:8.8.1'
-annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 ```
 
 # AndroidManifest.xml 配置

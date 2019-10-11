@@ -352,72 +352,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;id">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;id</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;id
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getUserId</span><span class="hljs-params">()</span></span>;
+                                <h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6570;&#x636E;">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6570;&#x636E;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;&#x4FE1;&#x606F;
+ example:
+ User *user = [UserManager shareInstance].user;
+ */
+@property (nonatomic,strong)User *user;   /**&lt;&#x5F53;&#x524D;&#x7528;&#x6237;*/
 </code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;id">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;id</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;id
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getCurrentHomeId</span><span class="hljs-params">()</span></span>;
+<h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;id">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;ID</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;ID
+  example:
+  NSString *hid = [UserManager shareInstance].hid;
+ */
+@property (nonatomic,  copy)NSString *hid;   /**&lt;&#x5BB6;&#x5EAD;ID    */
 </code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6570;&#x636E;">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6570;&#x636E;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6570;&#x636E;
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function">UserModel <span class="hljs-title">getUser</span><span class="hljs-params">()</span></span>;
+<h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;
+  example:
+  HomeListModel *home = [UserManager shareInstance].home;
+ */
+@property (nonatomic,strong)HomeListModel *home;   /**&lt;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;*/
 </code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;&#x6570;&#x636E;&#x96C6;&#x5408;">&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;&#x6570;&#x636E;&#x96C6;&#x5408;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;&#x6570;&#x636E;&#x96C6;&#x5408;
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function">List&lt;HomeModel&gt; <span class="hljs-title">getHomeList</span><span class="hljs-params">()</span></span>;
+<h1 id="sdk&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x623F;&#x95F4;">SDK&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x623F;&#x95F4;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x9ED8;&#x8BA4;&#x623F;&#x95F4;
+ example:
+ NSString *defaultRoomId = [UserManager shareInstance].defaultRoomId;
+ */
+@property (nonatomic,  copy)NSString *defaultRoomId;                          /**&lt;&#x9ED8;&#x8BA4;&#x623F;&#x95F4;   */
 </code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;id&#x5BF9;&#x5E94;&#x7684;&#x5BB6;&#x5EAD;&#x6570;&#x636E;">&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;id&#x5BF9;&#x5E94;&#x7684;&#x5BB6;&#x5EAD;&#x6570;&#x636E;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x83B7;&#x53D6;&#x5BB6;&#x5EAD;id&#x5BF9;&#x5E94;&#x7684;&#x5BB6;&#x5EAD;&#x6570;&#x636E;
- * <span class="hljs-doctag">@param</span> hid
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function">HomeModel <span class="hljs-title">getHomeForId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid)</span></span>;
-</code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;id&#x5BF9;&#x5E94;&#x7684;&#x623F;&#x95F4;&#x6570;&#x636E;&#x96C6;&#x5408;">&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;id&#x5BF9;&#x5E94;&#x7684;&#x623F;&#x95F4;&#x6570;&#x636E;&#x96C6;&#x5408;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x5BB6;&#x5EAD;id&#x5BF9;&#x5E94;&#x7684;&#x623F;&#x95F4;&#x6570;&#x636E;&#x96C6;&#x5408;
- * <span class="hljs-doctag">@param</span> hid &#x5BB6;&#x5EAD;id
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function">List&lt;RoomModel&gt; <span class="hljs-title">getRoomList</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid)</span></span>;
-</code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x623F;&#x95F4;id&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5408;">&#x83B7;&#x53D6;&#x623F;&#x95F4;id&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5408;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x623F;&#x95F4;id&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5408;
- * <span class="hljs-doctag">@param</span> rid &#x623F;&#x95F4;id
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function">RoomModel <span class="hljs-title">getRoomForId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rid)</span></span>;
+<h1 id="&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x623F;&#x95F4;&#x6570;&#x636E;&#x96C6;&#x5408;">&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x623F;&#x95F4;&#x6570;&#x636E;&#x96C6;&#x5408;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x623F;&#x95F4;&#x7F13;&#x5B58;&#x5217;&#x8868;
+ example:
+ NSMutableArray&lt;RoomListModel *&gt; *roomsArray = [UserManager shareInstance].roomsArray;
+ */
+@property (nonatomic,strong)NSMutableArray&lt;RoomListModel *&gt; *roomsArray;      /**&lt;&#x623F;&#x95F4;&#x7F13;&#x5B58;&#x5217;&#x8868;*/
 </code></pre>
 <h1 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x6570;&#x636E;&#x96C6;&#x5408;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x6570;&#x636E;&#x96C6;&#x5408;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x6570;&#x636E;&#x96C6;&#x5408;
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function">List&lt;DeviceModel&gt; <span class="hljs-title">getDeviceList</span><span class="hljs-params">()</span></span>;
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7F13;&#x5B58;&#x5217;&#x8868;
+ example:
+ NSMutableArray&lt;DeviceModel *&gt; *devicesArray = [UserManager shareInstance].devicesArray;
+ */
+@property (nonatomic,strong)NSMutableArray&lt;DeviceModel *&gt; *devicesArray;      /**&lt;&#x8BBE;&#x5907;&#x7F13;&#x5B58;&#x5217;&#x8868;*/
 </code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;id&#x5BF9;&#x5E94;&#x7684;&#x8BBE;&#x5907;&#x6570;&#x636E;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;id&#x5BF9;&#x5E94;&#x7684;&#x8BBE;&#x5907;&#x6570;&#x636E;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
-* &#x83B7;&#x53D6;&#x8BBE;&#x5907;id&#x5BF9;&#x5E94;&#x7684;&#x8BBE;&#x5907;&#x6570;&#x636E;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@return</span>
- */</span>
-<span class="hljs-function">DeviceModel <span class="hljs-title">getDeviceForId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+<h1 id="&#x5237;&#x65B0;&#x6570;&#x636E;&#x5E93;&#x548C;&#x6570;&#x636E;&#x7F13;&#x5B58;">&#x5237;&#x65B0;&#x6570;&#x636E;&#x5E93;&#x548C;&#x6570;&#x636E;&#x7F13;&#x5B58;</h1>
+<pre><code class="lang-Objective-C">/**
+ * &#x5237;&#x65B0;&#x6570;&#x636E;&#x5E93;&#x548C;&#x6570;&#x636E;&#x7F13;&#x5B58;
+ */
+- (void)reflishDataBase;
 </code></pre>
 
                                 
@@ -458,7 +445,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据缓存","level":"1.3.1","depth":2,"next":{"title":"3.设备配网","level":"1.4","depth":1,"ref":"","articles":[{"title":"产品列表","level":"1.4.1","depth":2,"path":"part3/3.1.md","ref":"part3/3.1.md","articles":[]},{"title":"WIFI设备配网","level":"1.4.2","depth":2,"path":"part3/3.2.md","ref":"part3/3.2.md","articles":[]}]},"previous":{"title":"2.用户管理","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"数据缓存","level":"1.3.1","depth":2,"path":"part2/2.1.md","ref":"part2/2.1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/2.1.md","mtime":"2019-08-12T08:07:58.348Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T08:36:13.014Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据缓存","level":"1.3.1","depth":2,"next":{"title":"3.设备配网","level":"1.4","depth":1,"ref":"","articles":[{"title":"产品列表","level":"1.4.1","depth":2,"path":"part3/3.1.md","ref":"part3/3.1.md","articles":[]},{"title":"WIFI设备配网","level":"1.4.2","depth":2,"path":"part3/3.2.md","ref":"part3/3.2.md","articles":[]}]},"previous":{"title":"2.用户管理","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"数据缓存","level":"1.3.1","depth":2,"path":"part2/2.1.md","ref":"part2/2.1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/2.1.md","mtime":"2019-08-20T02:21:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:15:34.670Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

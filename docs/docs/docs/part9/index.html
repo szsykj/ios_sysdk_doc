@@ -354,7 +354,225 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="&#x83B7;&#x53D6;&#x4EA7;&#x54C1;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x4EA7;&#x54C1;&#x5217;&#x8868;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6DFB;&#x52A0;&#x667A;&#x80FD;
+ * <span class="hljs-doctag">@param</span> model    &#x667A;&#x80FD;&#x6A21;&#x578B;
+ * <span class="hljs-doctag">@param</span> callBack &#x56DE;&#x8C03;&#x7ED3;&#x679C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addWisdom</span><span class="hljs-params">(WisdomModel model, ResultCallBack&lt;WisdomModel&gt; callBack)</span></span>;
+</code></pre>
+<h1 id="&#x5220;&#x9664;&#x667A;&#x80FD;">&#x5220;&#x9664;&#x667A;&#x80FD;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x5220;&#x9664;&#x667A;&#x80FD;
+ * <span class="hljs-doctag">@param</span> wid      &#x667A;&#x80FD;id
+ * <span class="hljs-doctag">@param</span> callBack &#x56DE;&#x8C03;&#x7ED3;&#x679C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteWisdom</span><span class="hljs-params">(<span class="hljs-keyword">int</span> wid, ResultCallBack callBack)</span></span>;
+</code></pre>
+<h1 id="&#x83B7;&#x53D6;&#x667A;&#x80FD;&#x6570;&#x636E;&#x96C6;&#x5408;">&#x83B7;&#x53D6;&#x667A;&#x80FD;&#x6570;&#x636E;&#x96C6;&#x5408;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x83B7;&#x53D6;&#x667A;&#x80FD;&#x6570;&#x636E;&#x96C6;&#x5408;
+ * <span class="hljs-doctag">@param</span> callBack &#x56DE;&#x8C03;&#x7ED3;&#x679C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getWisdomList</span><span class="hljs-params">(ResultCallBack&lt;List&lt;WisdomModel&gt;&gt; callBack)</span></span>;
+</code></pre>
+<h1 id="&#x5F00;&#x5173;&#x667A;&#x80FD;">&#x5F00;&#x5173;&#x667A;&#x80FD;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x5F00;&#x5173;&#x667A;&#x80FD;
+ * <span class="hljs-doctag">@param</span> wid      &#x667A;&#x80FD;id
+ * <span class="hljs-doctag">@param</span> onoff    &#x5F00;&#x5173;
+ * <span class="hljs-doctag">@param</span> callBack &#x56DE;&#x8C03;&#x7ED3;&#x679C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">switchWisdom</span><span class="hljs-params">(<span class="hljs-keyword">int</span> wid,<span class="hljs-keyword">boolean</span> onoff,ResultCallBack callBack)</span></span>;
+</code></pre>
+<h1 id="&#x4FEE;&#x6539;&#x667A;&#x80FD;">&#x4FEE;&#x6539;&#x667A;&#x80FD;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x4FEE;&#x6539;&#x667A;&#x80FD;
+ * <span class="hljs-doctag">@param</span> model    &#x667A;&#x80FD;&#x6570;&#x636E;
+ * <span class="hljs-doctag">@param</span> callBack &#x56DE;&#x8C03;&#x7ED3;&#x679C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateWisdom</span><span class="hljs-params">(WisdomModel model, ResultCallBack callBack)</span></span>;
+</code></pre>
+<h1 id="&#x624B;&#x52A8;&#x6267;&#x884C;&#x667A;&#x80FD;">&#x624B;&#x52A8;&#x6267;&#x884C;&#x667A;&#x80FD;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x624B;&#x52A8;&#x6267;&#x884C;&#x667A;&#x80FD;
+ * <span class="hljs-doctag">@param</span> wid &#x667A;&#x80FD;id
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">executeWisdom</span><span class="hljs-params">(<span class="hljs-keyword">int</span> wid)</span></span>;
+</code></pre>
+<h1 id="&#x8BBE;&#x7F6E;&#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;">&#x8BBE;&#x7F6E;&#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x8BBE;&#x7F6E;&#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
+ * <span class="hljs-doctag">@param</span> listener &#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">registerWisdomStatusListener</span><span class="hljs-params">(OnWisdomStatusListener listener)</span></span>;
+</code></pre>
+<h1 id="&#x53D6;&#x6D88;&#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;">&#x53D6;&#x6D88;&#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x53D6;&#x6D88;&#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
+ * <span class="hljs-doctag">@param</span> listener &#x667A;&#x80FD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unRegisterWisdomStatusListener</span><span class="hljs-params">(OnWisdomStatusListener listener)</span></span>;
+</code></pre>
+<h1 id="wisdommodel&#x6570;&#x636E;&#x6A21;&#x578B;">WisdomModel&#x6570;&#x636E;&#x6A21;&#x578B;</h1>
+<table>
+<thead>
+<tr>
+<th>&#x5B57;&#x6BB5;&#x540D;&#x79F0;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x5B57;&#x6BB5;&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wid</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x667A;&#x80FD;ID</td>
+</tr>
+<tr>
+<td>userID</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x7528;&#x6237;ID</td>
+</tr>
+<tr>
+<td>hid</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x5BB6;&#x5EAD;ID</td>
+</tr>
+<tr>
+<td>wisdomIcon</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x56FE;&#x7247;&#x5730;&#x5740;</td>
+</tr>
+<tr>
+<td>wisdomname</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x667A;&#x80FD;&#x540D;&#x5B57;</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x521B;&#x5EFA;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>andOr</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6267;&#x884C;&#x6761;&#x4EF6;&#xFF1A;1  &#x4E00;&#x8D77;&#x6267;&#x884C;&#xFF0C;2 &#x6EE1;&#x8DB3;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x5C31;&#x6267;&#x884C;</td>
+</tr>
+<tr>
+<td>wisdomStatus</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x72B6;&#x6001;&#xFF1A; 1&#x6B63;&#x5E38; &#xFF0C;2&#x914D;&#x7F6E;&#x4E2D;&#xFF0C;3&#x914D;&#x7F6E;&#x5931;&#x8D25;, 9&#x65E0;&#x6548;</td>
+</tr>
+<tr>
+<td>wisdomType</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x667A;&#x80FD;&#x7C7B;&#x578B;&#xFF1A; (&#x9ED8;&#x8BA4;)1&#x70B9;&#x51FB;&#x6267;&#x884C;&#xFF0C;2&#x8BBE;&#x5907;&#x8054;&#x52A8;&#x6267;&#x884C;&#xFF0C; 3 &#x5B9A;&#x65F6;&#x667A;&#x80FD;</td>
+</tr>
+<tr>
+<td>updateNum</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x4FEE;&#x6539;&#x6B21;&#x6570;</td>
+</tr>
+<tr>
+<td>onoff</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x72B6;&#x6001; 1&#xFF1A;&#x6253;&#x5F00; 9&#xFF1A;&#x5173;&#x95ED;</td>
+</tr>
+<tr>
+<td>supportHomePage</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x662F;&#x5426;&#x653E;&#x5728;&#x9996;&#x9875;&#x3002;0&#xFF1A;&#x4E0D;&#x652F;&#x6301;&#xFF0C;1&#xFF1A;&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td>wcid</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6761;&#x4EF6;ID</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x8BBE;&#x5907;ID</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x521B;&#x5EFA;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>conditionStatus</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x72B6;&#x6001; 1&#xFF1A;&#x6B63;&#x5E38; &#xFF0C;2&#xFF1A;&#x914D;&#x7F6E;&#x4E2D;&#xFF0C;3&#xFF1A;&#x914D;&#x7F6E;&#x5931;&#x8D25;, 9&#xFF1A;&#x65E0;&#x6548;</td>
+</tr>
+<tr>
+<td>conditionType</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6761;&#x4EF6;&#x7C7B;&#x578B;,S(1-2) 1&#xFF1A;&#x7528;&#x6237;&#x70B9;&#x51FB;&#xFF0C;2&#xFF1A;&#x8BBE;&#x5907;&#x6267;&#x884C; 3&#xFF1A;&#x5B9A;&#x65F6;&#x6761;&#x4EF6;</td>
+</tr>
+<tr>
+<td>conditionName</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x6761;&#x4EF6;&#x540D;&#x5B57;</td>
+</tr>
+<tr>
+<td>appointment</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x6761;&#x4EF6;&#x7EA6;&#x5B9A;grt&#xFF1A;&#x5927;&#x4E8E; less&#xFF1A;&#x5C0F;&#x4E8E; equal&#xFF1A;&#x7B49;&#x4E8E; geq&#xFF1A;&#x5927;&#x4E8E;&#x7B49;&#x4E8E; leq&#xFF1A;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E; redge&#xFF1A;&#x4E0A;&#x8DF3;&#x89E6;&#x53D1; fedge&#xFF1A;&#x4E0B;&#x8DF3;&#x89E6;&#x53D1;</td>
+</tr>
+<tr>
+<td>conditionValue</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6761;&#x4EF6;&#x503C;</td>
+</tr>
+<tr>
+<td>timeInfo</td>
+<td>Linkedmap</td>
+<td>&#x5B9A;&#x65F6;&#x667A;&#x80FD;&#x7684;&#x65F6;&#x95F4;&#x4FE1;&#x606F;,&#x82E5;type&#x4E3A;3&#x7684;&#x65F6;&#x5019;&#x5FC5;&#x4F20;&#xFF0C;&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;&#x548C;&#x65B0;&#x589E;&#x5B9A;&#x65F6;&#x7684;&#x65F6;&#x95F4;&#x4FE1;&#x606F;&#x4E00;&#x81F4;</td>
+</tr>
+<tr>
+<td>tokenID</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6761;&#x4EF6;&#x4E2D;&#x7684;tokenId</td>
+</tr>
+<tr>
+<td>wiid</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6267;&#x884C;ID</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6267;&#x884C;&#x7684;ID&#xFF1A;implementType = 2 &#x7684;&#x65F6;&#x5019;&#x4E3A;&#x8BBE;&#x5907; id</td>
+</tr>
+<tr>
+<td>implementStatus</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x72B6;&#x6001; 1&#xFF1A;&#x6253;&#x5F00; 9&#xFF1A;&#x65E0;&#x6548;</td>
+</tr>
+<tr>
+<td>implementName</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x6267;&#x884C;&#x540D;&#x5B57;</td>
+</tr>
+<tr>
+<td>implementType</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6267;&#x884C;&#x7C7B;&#x578B;&#xFF1A;2&#xFF1A;&#x8BBE;&#x5907;&#x6267;&#x884C;</td>
+</tr>
+<tr>
+<td>implementValue</td>
+<td>&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x6267;&#x884C;&#x7684;&#x503C;</td>
+</tr>
+<tr>
+<td>tokenId</td>
+<td>&#x6570;&#x5B57;</td>
+<td>&#x6267;&#x884C;&#x4E2D;&#x7684;tokenId</td>
+</tr>
+</tbody>
+</table>
+
                                 
                                 </section>
                             
@@ -397,7 +615,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.智能","level":"1.10","depth":1,"next":{"title":"10.设备分享","level":"1.11","depth":1,"path":"part10/README.md","ref":"part10/README.md","articles":[]},"previous":{"title":"8.倒计时","level":"1.9","depth":1,"path":"part8/README.md","ref":"part8/README.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part9/README.md","mtime":"2019-08-03T10:24:08.838Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-12T08:08:10.575Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.智能","level":"1.10","depth":1,"next":{"title":"10.设备分享","level":"1.11","depth":1,"path":"part10/README.md","ref":"part10/README.md","articles":[]},"previous":{"title":"8.倒计时","level":"1.9","depth":1,"path":"part8/README.md","ref":"part8/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part9/README.md","mtime":"2019-08-16T08:27:13.028Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T08:36:13.014Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

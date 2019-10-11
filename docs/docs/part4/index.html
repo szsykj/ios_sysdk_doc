@@ -355,140 +355,73 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x521B;&#x5EFA;&#x5BB6;&#x5EAD;">&#x521B;&#x5EFA;&#x5BB6;&#x5EAD;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x521B;&#x5EFA;&#x5BB6;&#x5EAD;
- * <span class="hljs-doctag">@param</span> name     &#x5BB6;&#x5EAD;&#x540D;&#x79F0;
- * <span class="hljs-doctag">@param</span> location &#x5BB6;&#x5EAD;&#x5730;&#x5740;
- * <span class="hljs-doctag">@param</span> roomList &#x623F;&#x95F4;&#x4FE1;&#x606F;
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createHome</span><span class="hljs-params">(String name, String location, List&lt;RoomModel&gt; roomList, ResultCallBack callBack)</span></span>;
+<pre><code class="lang-Objective-C">/**
+ *  &#x6DFB;&#x52A0;&#x5BB6;&#x5EAD;
+ *  @param name  &#x6DFB;&#x52A0;&#x7684;&#x5BB6;&#x5EAD;&#x540D;&#x79F0;
+ *  @param homeLocation  &#x5BB6;&#x5EAD;&#x4F4D;&#x7F6E;
+ *  @param roomArr &#x623F;&#x95F4;&#x96C6;&#x5408;
+ *  @param progress  &#x8FDB;&#x5EA6;
+ *  @param success &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x56DE;&#x8C03;&#x540E;&#xFF0C;&#x53EF;&#x83B7;&#x53D6;&#x4EE5;&#x4E0B;&#x6570;&#x636E;
+ *  &#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x6570;&#x636E;    [UserManager shareInstance].home
+ *  &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x623F;&#x95F4;&#x6570;&#x636E; [UserManager shareInstance].rooms
+ *  &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8BBE;&#x5907;&#x6570;&#x636E; [UserManager shareInstance].devices
+ *  &#x83B7;&#x53D6;&#x6240;&#x6709;&#x623F;&#x95F4;&#x6570;&#x636E;&#xFF08;&#x5305;&#x542B;&#x7F13;&#x5B58;+&#x7F51;&#x7EDC;&#x6570;&#x636E;&#xFF09;  [UserManager shareInstance].roomsArray
+ *  &#x83B7;&#x53D6;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x6570;&#x636E;&#xFF08;&#x5305;&#x542B;&#x7F13;&#x5B58;+&#x7F51;&#x7EDC;&#x6570;&#x636E;&#xFF09;  [UserManager shareInstance].devicesArray
+ {
+    &quot;homeLocation&quot;: &quot;&#x6DF1;&#x5733;&quot;,
+    &quot;name&quot;: &quot;&#x51C9;yi&quot;,
+    &quot;room&quot;: [{&quot;roomName&quot;:&quot;&#x5BA2;&#x5385;&quot;,&quot;roomIcon&quot;:&quot;asa.png&quot;}]
+ }
+*/
++ (void)addHome:(NSString*)name homeLocation:(NSString *)homeLocation roomArr:(NSArray *)roomArr progress:(void (^)(NSProgress *uploadProgress))progress success:(void (^)(SYResponeHCHomeInfoResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
 <h1 id="&#x5F97;&#x5230;&#x7528;&#x6237;&#x5BB6;&#x5EAD;&#x6570;&#x636E;">&#x5F97;&#x5230;&#x7528;&#x6237;&#x5BB6;&#x5EAD;&#x6570;&#x636E;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x5F97;&#x5230;&#x7528;&#x6237;&#x5BB6;&#x5EAD;&#x6570;&#x636E;
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getHomeList</span><span class="hljs-params">(ResultCallBack&lt;List&lt;HomeModel&gt;&gt; callBack)</span></span>;
+<pre><code class="lang-Objective-C">/**
+ *  &#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x623F;&#x95F4;&#x53CA;&#x8BBE;&#x5907;&#x4FE1;&#x606F;
+ *  @param success              &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure              &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x56DE;&#x8C03;&#x540E;&#xFF0C;&#x53EF;&#x83B7;&#x53D6;&#x4EE5;&#x4E0B;&#x6570;&#x636E;
+ *  &#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x6570;&#x636E;    [UserManager shareInstance].home
+ *  &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x623F;&#x95F4;&#x6570;&#x636E; [UserManager shareInstance].rooms
+ *  &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8BBE;&#x5907;&#x6570;&#x636E; [UserManager shareInstance].devices
+ *  &#x83B7;&#x53D6;&#x6240;&#x6709;&#x623F;&#x95F4;&#x6570;&#x636E;&#xFF08;&#x5305;&#x542B;&#x7F13;&#x5B58;+&#x7F51;&#x7EDC;&#x6570;&#x636E;&#xFF09;  [UserManager shareInstance].roomsArray
+ *  &#x83B7;&#x53D6;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x6570;&#x636E;&#xFF08;&#x5305;&#x542B;&#x7F13;&#x5B58;+&#x7F51;&#x7EDC;&#x6570;&#x636E;&#xFF09;  [UserManager shareInstance].devicesArray
+ example:
+ [SYNetWorkManager homeList:^(SYResponeHCHomeInfoListResult * _Nonnull result) {
+ if (result.hRA == 1) {
+    NSLog(@&quot;%@&quot;, [UserManager shareInstance].user.userId);
+    NSLog(@&quot;%@&quot;,[UserManager shareInstance].devicesArray);
+    NSLog(@&quot;%@&quot;,[UserManager shareInstance].home);
+    NSLog(@&quot;%@&quot;,[UserManager shareInstance].roomsArray);
+    NSLog(@&quot;%@&quot;,[UserManager shareInstance].defaultRoomId);
+    }
+ } failure:^(NSError * _Nonnull error) {
+
+ }];
+ */
++ (void)homeList:(void (^)(SYResponeHCHomeInfoListResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
 <h1 id="&#x66F4;&#x65B0;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;">&#x66F4;&#x65B0;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x66F4;&#x65B0;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;
- * <span class="hljs-doctag">@param</span> hid      &#x5BB6;&#x5EAD;&#x4FE1;&#x606F;
- * <span class="hljs-doctag">@param</span> name     &#x5BB6;&#x5EAD;&#x540D;&#x79F0;
- * <span class="hljs-doctag">@param</span> location &#x5BB6;&#x5EAD;&#x5730;&#x5740;
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateHomeInfo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid,String name,String location,ResultCallBack callBack)</span></span>;
-</code></pre>
-<h1 id="&#x8BBE;&#x7F6E;&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;">&#x8BBE;&#x7F6E;&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x8BBE;&#x7F6E;&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- * <span class="hljs-doctag">@param</span> listener &#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">registerHomeStatusListener</span><span class="hljs-params">(OnHomeStatusListener listener)</span></span>;
-</code></pre>
-<h1 id="&#x53D6;&#x6D88;&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;">&#x53D6;&#x6D88;&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x53D6;&#x6D88;&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- * <span class="hljs-doctag">@param</span> listener &#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unRegisterHomeStatusListener</span><span class="hljs-params">(OnHomeStatusListener listener)</span></span>;
-</code></pre>
-<h1 id="&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x56DE;&#x8C03;&#x7C7B;-onhomestatuslistener">&#x5BB6;&#x5EAD;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x56DE;&#x8C03;&#x7C7B; OnHomeStatusListener</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x5BB6;&#x5EAD;&#x6DFB;&#x52A0;&#x6210;&#x529F;
- * <span class="hljs-doctag">@param</span> hid &#x5BB6;&#x5EAD;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeAdded</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid)</span></span>;
+<pre><code class="lang-Objective-C">/**
+ *  &#x4FEE;&#x6539;&#x5BB6;&#x5EAD;&#x540D;&#x79F0;&#x548C;&#x5BB6;&#x5EAD;&#x4F4D;&#x7F6E;
+ *  @param homeId               &#x5BB6;&#x5EAD;id
+ *  @param homeLocation         &#x5BB6;&#x5EAD;&#x4F4D;&#x7F6E;(&#x6709;&#x5C31;&#x4F20;&#x503C;&#xFF0C;&#x6CA1;&#x6709;&#x5C31;&#x4F20;&#x7A7A;)
+ *  @param name                 &#x5BB6;&#x5EAD;&#x540D;&#x5B57;
+ *  @param success              &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ *  @param failure              &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x56DE;&#x8C03;
+ example:
+ [SYNetWorkManager updateHomeWithHomeId:[UserManager shareInstance].home.hid homeLocation:@&quot;&quot; name:@&quot;&#x7D2B;&#x7981;&#x4E4B;&#x5DC5;&quot; success:^(SYResponeHCStringResult * _Nonnull result) {
+    if (result.hRA == 1) {
 
-<span class="hljs-comment">/**
- * &#x5BB6;&#x5EAD;&#x9080;&#x8BF7;&#x901A;&#x77E5;
- * <span class="hljs-doctag">@param</span> hid &#x5BB6;&#x5EAD;id
- * <span class="hljs-doctag">@param</span> homeName &#x5BB6;&#x5EAD;&#x540D;&#x79F0;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeInvite</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid,String homeName)</span></span>;
+    }
+ } failure:^(NSError * _Nonnull error) {
 
-<span class="hljs-comment">/**
- * &#x5BB6;&#x5EAD;&#x5220;&#x9664;&#x6210;&#x529F;
- * <span class="hljs-doctag">@param</span> hid &#x5BB6;&#x5EAD;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeRemoved</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid)</span></span>;
-
-<span class="hljs-comment">/**
- * &#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x6539;&#x53D8;
- * <span class="hljs-doctag">@param</span> hid &#x5BB6;&#x5EAD;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeInfoChanged</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid)</span></span>;
-
-<span class="hljs-comment">/**
- * &#x5207;&#x6362;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;
- * <span class="hljs-doctag">@param</span> hid
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onHomeCurrentChanged</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hid)</span></span>;
+ }];
+ */
++ (void)updateHomeWithHomeId:(int)homeId homeLocation:(NSString *)homeLocation name:(NSString *)name success:(void (^)(SYResponeHCStringResult *result))success failure:(void (^)(NSError *error))failure;
 </code></pre>
-<h1 id="homemodel&#x6570;&#x636E;&#x6A21;&#x578B;">HomeModel&#x6570;&#x636E;&#x6A21;&#x578B;</h1>
-<table>
-<thead>
-<tr>
-<th>&#x5B57;&#x6BB5;&#x540D;&#x79F0;</th>
-<th>&#x7C7B;&#x578B;</th>
-<th>&#x5B57;&#x6BB5;&#x8BF4;&#x660E;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>userId</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x7528;&#x6237;id</td>
-</tr>
-<tr>
-<td>homeId</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x5BB6;&#x5EAD;id</td>
-</tr>
-<tr>
-<td>homeName</td>
-<td>&#x5B57;&#x7B26;&#x4E32;</td>
-<td>&#x5BB6;&#x5EAD;&#x540D;&#x79F0;</td>
-</tr>
-<tr>
-<td>roomCount</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x623F;&#x95F4;&#x6570;&#x91CF;</td>
-</tr>
-<tr>
-<td>deviceCount</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x8BBE;&#x5907;&#x6570;&#x91CF;</td>
-</tr>
-<tr>
-<td>homeCurrent</td>
-<td>&#x6570;&#x5B57;</td>
-<td>1&#xFF1A;&#x5F53;&#x524D;&#x5BB6;&#x5EAD; 0&#xFF1A;&#x5176;&#x4F59;&#x5BB6;&#x5EAD;</td>
-</tr>
-<tr>
-<td>createDate</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x521B;&#x5EFA;&#x65F6;&#x95F4;</td>
-</tr>
-<tr>
-<td>regionCode</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x57CE;&#x5E02;&#x7F16;&#x7801;</td>
-</tr>
-<tr>
-<td>homeLocation</td>
-<td>&#x5B57;&#x7B26;&#x4E32;</td>
-<td>&#x5BB6;&#x5EAD;&#x4F4D;&#x7F6E;</td>
-</tr>
-<tr>
-<td>userType</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x7C7B;&#x578B;1&#xFF1A;&#x7BA1;&#x7406;&#x5458; 9&#xFF1A;&#x666E;&#x901A;&#x7528;&#x6237; 0&#xFF1A;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x5458;</td>
-</tr>
-</tbody>
-</table>
 
                                 
                                 </section>
@@ -532,7 +465,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.家庭管理","level":"1.5","depth":1,"next":{"title":"5.房间管理","level":"1.6","depth":1,"path":"part5/README.md","ref":"part5/README.md","articles":[]},"previous":{"title":"WIFI设备配网","level":"1.4.2","depth":2,"path":"part3/3.2.md","ref":"part3/3.2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part4/README.md","mtime":"2019-08-16T08:24:48.681Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T08:36:13.014Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.家庭管理","level":"1.5","depth":1,"next":{"title":"5.房间管理","level":"1.6","depth":1,"path":"part5/README.md","ref":"part5/README.md","articles":[]},"previous":{"title":"WIFI设备配网","level":"1.4.2","depth":2,"path":"part3/3.2.md","ref":"part3/3.2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part4/README.md","mtime":"2019-08-20T02:26:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:15:34.670Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

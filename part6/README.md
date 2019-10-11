@@ -102,6 +102,9 @@
                     };
              role = cd;                    //倒计时字段 @“cd”
  }
+ 
+ *  查询设备MCU actionType == @"getMcuInfo"
+ *  NSDictionary  * dps = @{};
  */
 + (void)publishDps:(NSDictionary *)dps actionType:(NSString *)actionType deviceId:(NSString *)deviceId callback:(DataInteractionCallBack)blockHandling;
 ```

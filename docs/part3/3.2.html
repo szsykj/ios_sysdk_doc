@@ -354,7 +354,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="wifi&#x8BBE;&#x5907;&#x914D;&#x7F51;">WIFI&#x8BBE;&#x5907;&#x914D;&#x7F51;</h1>
+                                <h1 id="&#x8BBE;&#x5907;&#x914D;&#x7F51;">&#x8BBE;&#x5907;&#x914D;&#x7F51;</h1>
 <p>&#x4E8C;&#x7EF4;&#x7801;&#x5185;&#x5BB9;&#x5B9A;&#x4E49;
 &#x5728;&#x6DFB;&#x52A0;&#x8BBE;&#x5907;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x626B;&#x63CF;&#x4E8C;&#x7EF4;&#x7801;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x83B7;&#x5F97;&#x8BE6;&#x7EC6;&#x7684;&#x4EA7;&#x54C1;&#x4FE1;&#x606F;&#xFF0C;&#x7528;&#x6765;&#x5F15;&#x5BFC;&#x7528;&#x6237;&#x6DFB;&#x52A0;&#x6307;&#x5B9A;&#x7684;&#x4EA7;&#x54C1;&#x3002;&#x4E8C;&#x7EF4;&#x7801;&#x5185;&#x5BB9;&#x5B9A;&#x4E49;&#x4E3A;json&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x5E94;&#x5305;&#x542B;&#xFF1A;&#x5382;&#x5546;&#xFF0C;&#x4EA7;&#x54C1;&#x7C7B;&#x522B;&#xFF0C;&#x4EA7;&#x54C1;&#x5B50;&#x578B;&#x53F7;&#xFF0C;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x4EA7;&#x54C1;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x4FE1;&#x606F;.
 &#x5982;&#xFF1A;<a href="http://nvciot.nvccloud.com?M=NVC&amp;VID=0001&amp;WIRELESS=01&amp;TYPE=04&amp;SUBTYPE=00FC&amp;VERSION=01&amp;MODE=01&amp;SN=0013DF5555973&amp;PID=0001010400FC01" target="_blank">http://nvciot.nvccloud.com?M=NVC&amp;VID=0001&amp;WIRELESS=01&amp;TYPE=04&amp;SUBTYPE=00FC&amp;VERSION=01&amp;MODE=01&amp;SN=0013DF5555973&amp;PID=0001010400FC01</a></p>
@@ -365,21 +365,67 @@
 <h2 id="&#x914D;&#x7F51;">&#x914D;&#x7F51;</h2>
 <h1 id="&#x914D;&#x7F6E;&#x8BF4;&#x660E;">&#x914D;&#x7F6E;&#x8BF4;&#x660E;</h1>
 <pre><code class="lang-Objective-C">1.&#x8BBE;&#x5907;&#x7ED1;&#x5B9A;&#x7ED3;&#x679C;&#x72B6;&#x6001;
+//Wi-Fi&#x5355;&#x54C1;&#x914D;&#x7F51;
 typedef NS_ENUM(NSInteger, WHODeviceBindState) {
-    WHODeviceBindStateZreo = 0,
-    WHODeviceBindStateOne = 1, //getInfo &#x6210;&#x529F;
-    WHODeviceBindStateTwo,     //getInfo &#x5931;&#x8D25;&#xFF0C;&#x5305;&#x542B;&#x901A;&#x8BAF;&#x5931;&#x8D25;&#x53CA;&#x8D85;&#x65F6;
-    WHODeviceBindStateThree,   //&#x53D1;&#x9001;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;
-    WHODeviceBindStateFour,    // &#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x6210;&#x529F;
-    WHODeviceBindStateFive,    // &#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x5931;&#x8D25;
-    WHODeviceBindStateSix,     // &#x6CE8;&#x518C;&#x670D;&#x52A1;&#x5668;
-    WHODeviceBindStateSeven,   // &#x6CE8;&#x518C;&#x670D;&#x52A1;&#x5668;&#x6210;&#x529F;  7
-    WHODeviceBindStateEight,   // &#x6CE8;&#x518C;&#x670D;&#x52A1;&#x5668;&#x5931;&#x8D25;
-    WHODeviceBindStateNine,     //  errorCode = -1 &#x4E00;&#x822C;&#x6027;&#x9519;&#x8BEF;
-    WHODeviceBindStateTen,      //   errorCode = -2 &#x91CD;&#x590D;&#x8BBE;&#x7F6E;&#xFF0C;&#x662F;&#x6307;&#x8BBE;&#x7F6E;&#x7684;userId&#x4E0E;&#x8BBE;&#x5907;&#x7AEF;&#x5B58;&#x50A8;&#x7684;&#x76F8;&#x540C;&#x800C;&#x5BC6;&#x7801;&#x4E0D;&#x76F8;&#x540C;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x8BE5;&#x9519;&#x8BEF;
-    WHODeviceBindStateEle,      //   errorCode = -3 &#x5DF2;&#x88AB;&#x7ED1;&#x5B9A;&#xFF0C;&#x8BBE;&#x7F6E;&#x7684;userId&#x4E0E;&#x8BBE;&#x5907;&#x7AEF;&#x5B58;&#x50A8;&#x7684;&#x4E0D;&#x4E00;&#x6837;&#x3002;
+WHODeviceBindStateZreo = 0,  //
+WHODeviceBindStateOne = 1,   //getInfo &#x6210;&#x529F;
+WHODeviceBindStateTwo,       //getInfo &#x5931;&#x8D25;&#xFF0C;&#x5305;&#x542B;&#x901A;&#x8BAF;&#x5931;&#x8D25;&#x53CA;&#x8D85;&#x65F6;
+WHODeviceBindStateThree,     //&#x53D1;&#x9001;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;
+WHODeviceBindStateFour,      // &#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x6210;&#x529F;
+WHODeviceBindStateFive,      // &#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x5931;&#x8D25;
+WHODeviceBindStateSix,       // &#x6CE8;&#x518C;&#x670D;&#x52A1;&#x5668;
+WHODeviceBindStateSeven,     // &#x6CE8;&#x518C;&#x670D;&#x52A1;&#x5668;&#x6210;&#x529F;  7
+WHODeviceBindStateEight,     // &#x6CE8;&#x518C;&#x670D;&#x52A1;&#x5668;&#x5931;&#x8D25;
+WHODeviceBindStateNine,      //errorCode = -1 &#x4E00;&#x822C;&#x6027;&#x9519;&#x8BEF;
+WHODeviceBindStateTen,       //errorCode = -2 &#x91CD;&#x590D;&#x8BBE;&#x7F6E;&#xFF0C;&#x662F;&#x6307;&#x8BBE;&#x7F6E;&#x7684;userId&#x4E0E;&#x8BBE;&#x5907;&#x7AEF;&#x5B58;&#x50A8;&#x7684;&#x76F8;&#x540C;&#x800C;&#x5BC6;&#x7801;&#x4E0D;&#x76F8;&#x540C;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x8BE5;&#x9519;&#x8BEF;
+WHODeviceBindStateEle,       //errorCode = -3 &#x5DF2;&#x88AB;&#x7ED1;&#x5B9A;&#xFF0C;&#x8BBE;&#x7F6E;&#x7684;userId&#x4E0E;&#x8BBE;&#x5907;&#x7AEF;&#x5B58;&#x50A8;&#x7684;&#x4E0D;&#x4E00;&#x6837;&#x3002;
+//    WHOUDPDeviceBindStateTwl,   //&#x603B;&#x4F53;&#x8D85;&#x65F6;
 } NS_AVAILABLE(NA, 7_0);
-
+//&#x7F51;&#x5173;&#x84DD;&#x7259;&#x914D;&#x7F51;
+typedef NS_ENUM(NSInteger, WHOBLEDeviceBindState) {
+WHOBLEDeviceBindStateZreo = 0,  //
+WHOBLEDeviceBindStateOne = 1,   //&#x7F51;&#x5173;&#x54CD;&#x5E94;ScanBle &#x6210;&#x529F;
+WHOBLEDeviceBindStateTwo,       //&#x7F51;&#x5173;&#x54CD;&#x5E94;ScanBle &#x5931;&#x8D25;(&#x786E;&#x4FDD;&#x8BBE;&#x5907;&#x4E0A;&#x7535;&#xFF0C;&#x5E76;&#x5728;&#x7F51;&#x5173;&#x9644;&#x8FD1;)
+WHOBLEDeviceBindStateThree,     //&#x5F00;&#x59CB;pollBLe
+WHOBLEDeviceBindStateFour,      //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x5931;&#x8D25;
+WHOBLEDeviceBindStateFive,      //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x7ED1;&#x5B9A;&#x6210;&#x529F; 0
+WHOBLEDeviceBindStateSix,       //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x626B;&#x63CF; 1
+WHOBLEDeviceBindStateSeven,     //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x626B;&#x63CF; 2
+WHOBLEDeviceBindStateEight,     //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x626B;&#x63CF; 3
+WHOBLEDeviceBindStateNine,      //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x626B;&#x63CF; 4
+WHOBLEDeviceBindStateTen,       //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x626B;&#x63CF; 5
+WHOBLEDeviceBindStateEle,       //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x914D;&#x5BF9; 6
+WHOUDPDeviceBindStateTwl,       //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x914D;&#x5BF9; 7
+WHOUDPDeviceBindStateThirteen,  //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x914D;&#x5BF9; 8
+WHOUDPDeviceBindStateFourteen,  //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x914D;&#x5BF9; 9
+WHOUDPDeviceBindStateFiveteen,  //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x7ED1;&#x5B9A; 10
+WHOUDPDeviceBindStateSixteen,   //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x7ED1;&#x5B9A; 11
+WHOUDPDeviceBindStateSeventeen, //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x7ED1;&#x5B9A; 12
+WHOUDPDeviceBindStateEightteen, //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x5F00;&#x59CB;&#x7ED1;&#x5B9A; 13
+WHOBLEDeviceBindStateTen0,      //pollBLe &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F; &#x7F51;&#x5173;&#x6CA1;&#x6709;&#x626B;&#x5230;&#x8BBE;&#x5907;
+WHOUDPDeviceBindStateNineteen,  //setBlePassword &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x6210;&#x529F;
+WHOUDPDeviceBindStatetwenty,    //setBlePassword &#x7F51;&#x5173;&#x54CD;&#x5E94;&#x5931;&#x8D25;
+WHOUDPDeviceBindStatetwentyOne, //&#x6DFB;&#x52A0;&#x6210;&#x7F51;&#x7EDC;&#x8BBE;&#x5907;&#x6210;&#x529F;
+WHOUDPDeviceBindStatetwentyTwo, //&#x6DFB;&#x52A0;&#x6210;&#x7F51;&#x7EDC;&#x8BBE;&#x5907;&#x5931;&#x8D25;
+} NS_AVAILABLE(NA, 7_0);
+//Ap&#x914D;&#x7F51;
+typedef NS_ENUM(NSInteger,UDPStateType){
+UDPStateTypeZero = 0,           //&#x6821;&#x9A8C;   &#x5F53;&#x524D;&#x8FDE;&#x63A5;&#x70ED;&#x70B9;&#x4E0D;&#x5408;&#x6CD5;
+UDPStateTypeOne = 1,            //&#x5F00;&#x59CB;&#x914D;&#x7F6E; &#x53D1;&#x9001;&#x8DEF;&#x7531;&#x8D26;&#x53F7;&#x548C;&#x5BC6;&#x7801;
+UDPStateTypeTwo,                //&#x53D1;&#x9001;&#x8DEF;&#x7531;&#x8D26;&#x53F7;&#x548C;&#x5BC6;&#x7801;&#x6210;&#x529F;
+UDPStateTypeThree,              //&#x53D1;&#x9001;&#x8DEF;&#x7531;&#x8D26;&#x53F7;&#x548C;&#x5BC6;&#x7801;&#x5931;&#x8D25;
+UDPStateTypeFour,               //&#x8FDE;&#x63A5;&#x914D;&#x7F51;&#x8DEF;&#x7531;&#xFF0C;&#x53D1;&#x73B0;&#x8BBE;&#x5907;
+UDPStateTypeFive,               //&#x53D1;&#x73B0;&#x8BBE;&#x5907;&#x6210;&#x529F;&#xFF0C;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x548C;&#x7528;&#x6237;ID
+UDPStateTypeSix,                //&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x548C;&#x7528;&#x6237;ID&#x6210;&#x529F;
+UDPStateTypeSeven,              //&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x548C;&#x7528;&#x6237;ID&#x9519;&#x8BEF; &#x4E00;&#x822C;&#x6027;&#x9519;&#x8BEF;
+UDPStateTypeEight,              //&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x548C;&#x7528;&#x6237;ID&#x9519;&#x8BEF; &#x91CD;&#x590D;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;
+UDPStateTypeNine,               //&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;&#x548C;&#x7528;&#x6237;ID&#x9519;&#x8BEF; &#x8BBE;&#x5907;&#x5DF2;&#x88AB;&#x7ED1;&#x5B9A;
+UDPStateTypeTen,                //&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5B8C;&#x6210; &#x914D;&#x7F51;
+UDPStateTypeEleve,              //&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5B8C;&#x6210; &#x7F51;&#x7EDC;&#x6CE8;&#x518C;&#x4E0D;&#x6210;&#x529F;
+UDPStateTypeTeleve,             //&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5B8C;&#x6210; &#x7F51;&#x7EDC;&#x6CE8;&#x518C;&#x6210;&#x529F;
+UDPStateTypeThreeteen,          //&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5B8C;&#x6210; &#x65E0;&#x7F51;&#x7EDC;
+UDPStateTypeFourteen,           //&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x5931;&#x8D25;&#xFF0C;&#x8D85;&#x65F6;
+};
 2.&#x7ED1;&#x5B9A;&#x72B6;&#x6001;
 typedef NS_ENUM(NSInteger, WHOUDPDeviceState) {
     DeviceBindDefault = 0,
@@ -387,16 +433,24 @@ typedef NS_ENUM(NSInteger, WHOUDPDeviceState) {
     DeviceBinding = 2,  //&#x7ED1;&#x5B9A;&#x4E2D;
     DeviceBindEnd = 3,  //&#x7ED1;&#x5B9A;&#x7ED3;&#x675F;
 } NS_AVAILABLE(NA, 7_0);
-/*&#x8BBE;&#x5907;&#x914D;&#x7F51;&#x7ED3;&#x675F;&#x56DE;&#x8C03;*/
+
 typedef void(^DeviceBindCallbackHandling)(WHODeviceBindState state,NSString *did);
-/*&#x8BBE;&#x5907;&#x914D;&#x7F51;&#x72B6;&#x6001;&#x56DE;&#x8C03;*/
+
 typedef void(^DeviceBindStatusCallbackHandling)(WHODeviceBindState state);
 
-@property (nonatomic,assign)WHOUDPDeviceState bindStatus;//UDP&#x7ED1;&#x5B9A;&#x72B6;&#x6001;
+typedef void(^BLEDeviceBindStatusCallbackHandling)(WHOBLEDeviceBindState state);
+
+typedef void(^BLEDeviceBindCallbackHandling)(WHOBLEDeviceBindState state,NSString *did);
+
+typedef void(^APDeviceBindCallbackHandling)(UDPStateType state,NSString *did);
+
+@interface SYWHOUDPManager : NSObject
+
+@property (nonatomic,assign)WHOUDPDeviceState bindStatus;          //   UDP &#x7ED1;&#x5B9A;&#x72B6;&#x6001;(WIFI&#x5355;&#x54C1;&#x548C;&#x7F51;&#x5173;BLE Ap&#x914D;&#x7F51;)
 </code></pre>
 <h1 id="&#x5F00;&#x59CB;&#x914D;&#x7F51;&#x624B;&#x52A8;&#x914D;&#x7F6E;&#x548C;&#x626B;&#x7801;&#x914D;&#x7F6E;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;">&#x5F00;&#x59CB;&#x914D;&#x7F51;(&#x624B;&#x52A8;&#x914D;&#x7F6E;&#x548C;&#x626B;&#x7801;&#x914D;&#x7F6E;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;)</h1>
 <pre><code class="lang-Objective-C">/**
- *  &#x914D;&#x7F51;                             &#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x624B;&#x673A;&#x8054;&#x7F51;&#x72B6;&#x6001;&#x662F;WIFI(&#x8BBE;&#x5907;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x623F;&#x95F4;&#x5185;)
+ *  &#x914D;&#x7F51;&#xFF08;wifi&#x5355;&#x54C1;&#xFF09;                  &#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x624B;&#x673A;&#x8054;&#x7F51;&#x72B6;&#x6001;&#x662F;WIFI(&#x8BBE;&#x5907;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x623F;&#x95F4;&#x5185;)
  *  @param deviceInfo               &#x914D;&#x7F51;&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#xFF08;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF09;
  *  @param wifiName                 Wifi&#x540D;&#x79F0; 
  *  @param password                 Wifi&#x5BC6;&#x7801;
@@ -405,12 +459,50 @@ typedef void(^DeviceBindStatusCallbackHandling)(WHODeviceBindState state);
  *  @param blockHandling            &#x914D;&#x7F51;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#xFF08;&#x5305;&#x542B;&#x72B6;&#x6001;&#x53CA;&#x8BBE;&#x5907;did&#xFF09;
  */
 - (void)startToBindDevice:(WIFIDeviceInfo *)deviceInfo wifiName:(NSString *)wifiName password:(NSString*)password andLimitTime:(NSInteger)time callbackStatus:(DeviceBindStatusCallbackHandling)blockStatusHandling callback:(DeviceBindCallbackHandling)blockHandling;
+
+
+/**
+*  &#x914D;&#x7F51;&#xFF08;&#x7F51;&#x5173;&#x84DD;&#x7259;&#x914D;&#x7F51;&#xFF09;                &#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x624B;&#x673A;&#x8054;&#x7F51;&#x72B6;&#x6001;&#x662F;WIFI
+*  @param deviceInfo               &#x914D;&#x7F51;&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#xFF08;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF09;
+*  @param gatewayId                &#x7F51;&#x5173; DeviceId
+*  @param time                     &#x8BBE;&#x7F6E;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x914D;&#x7F51;&#x65F6;&#x95F4;&#xFF08;&#x5355;&#x4F4D;&#x4E3A;&#x6BEB;&#x79D2;&#xFF09;
+*  @param blockStatusHandling      &#x914D;&#x7F51;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x7684;&#x56DE;&#x8C03;
+*  @param blockHandling            &#x914D;&#x7F51;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#xFF08;&#x5305;&#x542B;&#x72B6;&#x6001;&#x53CA;&#x8BBE;&#x5907;did&#xFF09;
+*/
+
+- (void)startToBindBLEDevice:(WIFIDeviceInfo *)deviceInfo gatewayId:(NSString *)gatewayId andLimitTime:(NSInteger)time callbackStatus:(BLEDeviceBindStatusCallbackHandling)blockStatusHandling callback:(BLEDeviceBindCallbackHandling)blockHandling;
+/**
+*  &#x505C;&#x6B62;&#x914D;&#x7F51; &#xFF08;&#x7F51;&#x5173;&#x84DD;&#x7259;&#x914D;&#x7F51;&#xFF09;
+*/
+- (void)stopBLEBind;
+
+/**
+*  Ap&#x914D;&#x7F51; &#x6B65;&#x9AA4;&#x4E00;&#xFF1A;&#x53D1;&#x9001;Wi-Fi&#x540D;&#x5B57;&#x548C;&#x5BC6;&#x7801;
+*  @param deviceInfo               &#x914D;&#x7F51;&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#xFF08;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF09;
+*  @param wifiName                 &#x9700;&#x8981;&#x914D;&#x7F51;&#x7684;Wi-Fi&#x540D;&#x79F0;
+*  @param password                 Wi-Fi&#x5BC6;&#x7801;
+*  @param blockHandling            &#x914D;&#x7F51;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#xFF08;&#x5305;&#x542B;&#x72B6;&#x6001;&#x53CA;&#x8BBE;&#x5907;did&#xFF09;
+*/
+-(void)startToBindApDevice:(WIFIDeviceInfo *)deviceInfo wifiName:(NSString *)wifiName password:(NSString*)password callback:(APDeviceBindCallbackHandling)blockHandling;
+
+/**
+*  Ap&#x914D;&#x7F51; &#x6B65;&#x9AA4;&#x4E8C;&#xFF1A;&#x5F53;&#x6B65;&#x9AA4;&#x4E00;&#x8FD4;&#x56DE;UDPStateTypeTwo&#xFF0C;&#x5F00;&#x59CB;&#x8C03;&#x7528;
+*  @param deviceInfo               &#x914D;&#x7F51;&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#xFF08;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF09;
+*  @param deviceHotspot            &#x9700;&#x8981;&#x914D;&#x7F51;&#x7684; &#x8BBE;&#x5907;&#x70ED;&#x70B9;
+*  @param blockHandling            &#x914D;&#x7F51;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#xFF08;&#x5305;&#x542B;&#x72B6;&#x6001;&#x53CA;&#x8BBE;&#x5907;did&#xFF09;
+*/
+- (void)startToBindApDeviceSecond:(WIFIDeviceInfo *)deviceInfo deviceHotspot:(NSString *)deviceHotspot  callback:(APDeviceBindCallbackHandling)blockHandling;
 </code></pre>
 <h1 id="&#x7ED3;&#x675F;&#x914D;&#x7F51;">&#x7ED3;&#x675F;&#x914D;&#x7F51;</h1>
 <pre><code class="lang-Objective-C">/**
  *  &#x505C;&#x6B62;&#x914D;&#x7F51; 
  */
 - (void)stopBind;
+
+/**
+*  &#x505C;&#x6B62;&#x914D;&#x7F51; &#xFF08;&#x7F51;&#x5173;&#x84DD;&#x7259;&#x914D;&#x7F51;&#xFF09;
+*/
+- (void)stopBLEBind;
 </code></pre>
 <h1 id="&#x5C1D;&#x8BD5;tcpmqtt&#x8FDE;&#x63A5;&#xFF08;&#x914D;&#x7F51;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5F00;&#x59CB;&#x8C03;&#x7528;&#xFF09;">&#x5C1D;&#x8BD5;TCP/MQTT&#x8FDE;&#x63A5;&#xFF08;&#x914D;&#x7F51;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5F00;&#x59CB;&#x8C03;&#x7528;&#xFF09;</h1>
 <pre><code class="lang-Objective-C">/**
@@ -469,7 +561,7 @@ typedef void(^DeviceBindStatusCallbackHandling)(WHODeviceBindState state);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"WIFI设备配网","level":"1.4.2","depth":2,"next":{"title":"4.家庭管理","level":"1.5","depth":1,"path":"part4/README.md","ref":"part4/README.md","articles":[]},"previous":{"title":"产品列表","level":"1.4.1","depth":2,"path":"part3/3.1.md","ref":"part3/3.1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part3/3.2.md","mtime":"2019-08-20T02:24:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:15:34.670Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"WIFI设备配网","level":"1.4.2","depth":2,"next":{"title":"4.家庭管理","level":"1.5","depth":1,"path":"part4/README.md","ref":"part4/README.md","articles":[]},"previous":{"title":"产品列表","level":"1.4.1","depth":2,"path":"part3/3.1.md","ref":"part3/3.1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part3/3.2.md","mtime":"2019-10-10T02:29:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-11T01:17:05.106Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

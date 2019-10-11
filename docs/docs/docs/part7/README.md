@@ -103,7 +103,7 @@ void onTimingChanged(int did, List<Timing> timings);
 ```
 
 
-#Timing数据模型类
+#Timing数据模型
 
 | 字段名称       | 字段说明    | 类型  | 备注                                                                                       |
 |------------|---------|-----|------------------------------------------------------------------------------------------|
@@ -115,5 +115,5 @@ void onTimingChanged(int did, List<Timing> timings);
 | createTime | 创建的时间   | 数字  | \-                                                                                       |
 | userId     | 用户ID    | 数字  | \-                                                                                       |
 | deviceId   | 设备ID    | 数字  | \-                                                                                       |
-| dtStatus   | 任务的状态   | 数字  | 状态,L\(1~2\) 1：打开， 0：关闭                                                                   |
+| dtStatus   | 任务的状态   | 数字  | 状态 1：打开， 0：关闭                                                                   |
 

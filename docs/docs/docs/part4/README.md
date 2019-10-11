@@ -8,7 +8,7 @@
  * @param roomList 房间信息
  * @param callBack 结果回调
  */
-void createHome(String name, String location, List<RoomBean> roomList, ResultCallBack callBack);
+void createHome(String name, String location, List<RoomModel> roomList, ResultCallBack callBack);
 ```
 
 #得到用户家庭数据
@@ -18,7 +18,7 @@ void createHome(String name, String location, List<RoomBean> roomList, ResultCal
  * 得到用户家庭数据
  * @param callBack 结果回调
  */
-void getHomeList(ResultCallBack<List<HomeBean>> callBack);
+void getHomeList(ResultCallBack<List<HomeModel>> callBack);
 ```
 
 #更新家庭信息
@@ -89,7 +89,7 @@ void onHomeInfoChanged(int hid);
 void onHomeCurrentChanged(int hid);
 ```
 
-#家庭模型类
+#HomeModel数据模型
 | 字段名称         | 类型  | 字段说明                   |
 |--------------|-----|------------------------|
 | userId       | 数字  | 用户id                   |

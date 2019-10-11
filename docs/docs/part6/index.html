@@ -355,133 +355,354 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x8BBE;&#x5907;&#x63A7;&#x5236;">&#x8BBE;&#x5907;&#x63A7;&#x5236;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x53D1;&#x9001;&#x63A7;&#x5236;&#x6307;&#x4EE4;
- * <span class="hljs-doctag">@param</span> parameter &#x63A7;&#x5236;&#x6307;&#x4EE4;&#x53C2;&#x6570;
- * <span class="hljs-doctag">@param</span> callBack  &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">control</span><span class="hljs-params">(CmdParameter parameter, ResultCallBack callBack)</span></span>;
-</code></pre>
-<h1 id="&#x67E5;&#x8BE2;&#x8BBE;&#x5907;&#x72B6;&#x6001;">&#x67E5;&#x8BE2;&#x8BBE;&#x5907;&#x72B6;&#x6001;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x67E5;&#x8BE2;&#x8BBE;&#x5907;&#x72B6;&#x6001;
- * <span class="hljs-doctag">@param</span> did      &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getStatus</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did,ResultCallBack&lt;LinkedHashMap&lt;String,String&gt;&gt; callBack)</span></span>;
-</code></pre>
-<h1 id="&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x4FE1;&#x606F;">&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x4FE1;&#x606F;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x4FE1;&#x606F;
- * <span class="hljs-doctag">@param</span> did      &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@param</span> name     &#x8BBE;&#x5907;&#x540D;&#x79F0;
- * <span class="hljs-doctag">@param</span> icon     &#x8BBE;&#x5907;&#x56FE;&#x6807;
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateDeviceInfo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did, String name, String icon, ResultCallBack callBack)</span></span>;
-</code></pre>
-<h1 id="&#x66F4;&#x65B0;&#x5E38;&#x7528;&#x8BBE;&#x5907;">&#x66F4;&#x65B0;&#x5E38;&#x7528;&#x8BBE;&#x5907;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x66F4;&#x65B0;&#x5E38;&#x7528;&#x8BBE;&#x5907; (&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x662F;&#x5426;&#x5E38;&#x7528;)
- * <span class="hljs-doctag">@param</span> did      &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@param</span> isCommon &#x662F;&#x5426;&#x5E38;&#x7528;&#x8BBE;&#x5907;
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateCommonDevice</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did, <span class="hljs-keyword">boolean</span> isCommon, ResultCallBack callBack)</span></span>;
-</code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;mcu&#x7248;&#x672C;&#x53F7;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;mcu&#x7248;&#x672C;&#x53F7;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x8BBE;&#x5907;mcu&#x7248;&#x672C;&#x53F7;
- * <span class="hljs-doctag">@param</span> did      &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getMcuVersion</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did, ResultCallBack&lt;String&gt; callBack)</span></span>;
-</code></pre>
-<h1 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;
- * <span class="hljs-doctag">@param</span> did      &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getDeviceUpgradeInfo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did,ResultCallBack&lt;UpdateInfoBean&gt; callBack)</span></span>;
-</code></pre>
-<h1 id="&#x8BBE;&#x5907;&#x5347;&#x7EA7;">&#x8BBE;&#x5907;&#x5347;&#x7EA7;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x5347;&#x7EA7;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deviceOTA</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did, ResultCallBack callBack)</span></span>;
-</code></pre>
-<h1 id="&#x8BBE;&#x5907;&#x5220;&#x9664;">&#x8BBE;&#x5907;&#x5220;&#x9664;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x5220;&#x9664;
- * <span class="hljs-doctag">@param</span> did      &#x8BBE;&#x5907;id
- * <span class="hljs-doctag">@param</span> callBack &#x7ED3;&#x679C;&#x56DE;&#x8C03;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteDevice</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did ,ResultCallBack callBack)</span></span>;
-</code></pre>
-<h1 id="&#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;">&#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- * <span class="hljs-doctag">@param</span> listener &#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">registerDeviceStatusListener</span><span class="hljs-params">(OnDeviceStatusListener listener)</span></span>;
-</code></pre>
-<h1 id="&#x53D6;&#x6D88;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;">&#x53D6;&#x6D88;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x53D6;&#x6D88;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- * <span class="hljs-doctag">@param</span> listener &#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unRegisterDeviceStatusListener</span><span class="hljs-params">(OnDeviceStatusListener listener)</span></span>;
-</code></pre>
-<h1 id="&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x56DE;&#x8C03;&#x7C7B;-ondevicestatuslistener">&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x56DE;&#x8C03;&#x7C7B; OnDeviceStatusListener</h1>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x6DFB;&#x52A0;&#x6210;&#x529F;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceAdded</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+<h1 id="&#x57FA;&#x7840;&#x4FE1;&#x606F;1">&#x57FA;&#x7840;&#x4FE1;&#x606F;1</h1>
+<pre><code class="lang-Objective-C"> typedef NS_ENUM(UInt16, WHOCallBackCode) {
+    WHOCallBackOK = 0x0000,             // &#x63A7;&#x5236;&#xFF08;&#x83B7;&#x53D6;/&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#x6210;&#x529F;
+    WHOCallBackTimeout = 0x0001,        // &#x63A7;&#x5236;&#xFF08;&#x83B7;&#x53D6;/&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#x8D85;&#x65F6;
+    WHOCallBackFail = 0x0002,           // &#x63A7;&#x5236;&#xFF08;&#x83B7;&#x53D6;/&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#x5931;&#x8D25;
+ };
 
-<span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x5220;&#x9664;&#x6210;&#x529F;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceRemoved</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+/*
+ &#x4F8B;&#x5B50;&#xFF1A;WHONOTIFY
+ type &#x4E3A; refresh &#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x8FD4;&#x56DE;
+ device, wisdom, timing;
+ device&#xFF1A;&#x8BBE;&#x5907;&#x53D8;&#x66F4;
+ wisdom&#xFF1A;&#x667A;&#x80FD;&#x53D8;&#x66F4;
+ timing: &#x5B9A;&#x65F6;&#x53D8;&#x66F4;
+ type &#x4E3A; upgrade &#xFF0C;value = 1 &#x8868;&#x793A;&#x6210;&#x529F;&#xFF0C;value &#xFF1A;0&#x8868;&#x793A;&#x5931;&#x8D25;
+ &#x4F8B;&#x5B50;&#xFF1A;
+ {
+    &quot;type&quot;:&quot;refresh&quot;,
+    &quot;value&quot;:&quot;wisdom&quot;&#xFF0C;
+    &quot;id&quot;:&quot;298&quot;&#xFF0C;
+ }
+ */
 
-<span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x6539;&#x53D8;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceInfoChanged</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+ typedef NS_ENUM(UInt16, WHOActionType) {
+    WHOGET = 0x0001,                    // &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x8BE6;&#x60C5;
+    WHOINFORM = 0x0002,                 // &#x8BBE;&#x5907;&#x8BE6;&#x60C5;&#x4E0A;&#x62A5;
+    WHOLOGIN = 0x0003,                  // &#x8BBE;&#x5907;&#x767B;&#x5F55;
+    WHODISCONN = 0x0004,                // &#x8BBE;&#x5907;&#x79BB;&#x7EBF;
+    WHODIFFLOGIN = 0x0005,              // &#x7528;&#x6237;&#x4E0B;&#x7EBF;
+    WHONOTIFY = 0x0006,                 // &#x6D88;&#x606F;&#x901A;&#x77E5;
+ };
 
-<span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4E0A;&#x62A5;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceStatusInform</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+ typedef void(^DataInteractionCallBack)(WHOCallBackCode Code,NSDictionary *dict);      //&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x83B7;&#x53D6;&#x56DE;&#x8C03;
 
-<span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x4E0A;&#x7EBF;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceLogin</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+ typedef void(^ReciveDataInteractionCallBack)(WHOActionType type,NSString *deviceId,NSDictionary *dict);  //&#x76D1;&#x542C;&#x8BBE;&#x5907;&#x4E0A;&#x62A5;&#x72B6;&#x6001;
+</code></pre>
+<h1 id="&#x8BBE;&#x5907;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#xFF08;&#x65B9;&#x5F0F;1&#xFF09;">&#x8BBE;&#x5907;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#xFF08;&#x65B9;&#x5F0F;1&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/** SYWHODataInteractionManager
+ *  &#x516C;&#x6709;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;(&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#xFF0C;&#x63A7;&#x5236;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#xFF0C;&#x6DFB;&#x52A0;&#x5012;&#x8BA1;&#x65F6;&#x63A5;&#x53E3;)
+ *  @param dps               &#x53C2;&#x7167;&#x8BBE;&#x5907;&#x6A21;&#x578B;&#x6587;&#x6863;&#xFF0C;&#x7EC4;&#x5305;&#x63A7;&#x5236;
+ *  @param actionType        &#x6267;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x540D;&#x79F0;&#xFF08;&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x72B6;&#x6001;:@&quot;get&quot;,&#x63A7;&#x5236;&#x8BBE;&#x5907;&#x72B6;&#x6001;:@&quot;control&quot;&#xFF09;
+ *  actionType:@&quot;control&quot; &#x63A7;&#x5236;&#x8BBE;&#x5907;
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@&quot;%d&quot;,status],@&quot;onoff&quot;,nil];
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@&quot;%d&quot;,status],@&quot;onoff1&quot;,nil];
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@&quot;%d&quot;,status],@&quot;onoff2&quot;,nil];
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@&quot;%ld&quot;,brightness],@&quot;set_brightness&quot;,nil];
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@&quot;%ld&quot;,brightness],@&quot;set_brightness_night&quot;,nil];
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@&quot;%d&quot;,cct],@&quot;set_cct&quot;,nil];
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@&quot;%d&quot;,mode],@&quot;set_mode&quot;,nil];
+ *  actionType:@&quot;get&quot;     &#x83B7;&#x53D6;&#x8BBE;&#x5907;
+ *  NSDictionary *dps = [NSDictionary dictionaryWithObject:@&quot;all&quot; forKey:@&quot;attrTarget&quot;];
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x7ED3;&#x679C;&#x56DE;&#x8C03;      (&#x7ED3;&#x679C;:WHOCallBackCode,&#x53C2;&#x6570;:dict)
 
-<span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x79BB;&#x7EBF;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceOffline</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+ get &#x56DE;&#x5305;&#xFF0C;&#x6839;&#x636E;code == 1&#xFF0C;&#x83B7;&#x53D6;&#x5B58;&#x50A8;&#x5728;attrMaps&#x5B57;&#x5178;&#x91CC;&#x72B6;&#x6001;&#x6570;&#x636E;
+ {
+    attrMaps = {
+                    brightness = 10;
+                    cct = 0;
+                    mode = 0;
+                    status = 0;
+                    status1 = 0;
+                    status2 = 0;
+                    &quot;timing_period&quot; = 2700;
+                    &quot;timing_period_remain&quot; = 2700;
+              };
+    code = 1;
+ }
 
-<span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x6210;&#x529F;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceUpdateSuccess</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+ &#x5012;&#x8BA1;&#x65F6;
+ *  &#x6DFB;&#x52A0;&#x5012;&#x8BA1;&#x65F6; actionType == @&quot;addObject&quot;
+ *  action = @{@&quot;onoff&quot;:@&quot;1&quot;};   //&#x6267;&#x884C;&#x52A8;&#x4F5C;
+ *  NSDictionary * taskDic =[[NSDictionary alloc] initWithObjectsAndKeys: @([deviceId integerValue]),@&quot;id&quot;,@{@&quot;hour&quot;:@(hour),@&quot;min&quot;:@(min),@&quot;sec&quot;:@(0)},@&quot;time&quot;,action,@&quot;trigger&quot;,nil];
+ *  NSDictionary  * dps = [[NSDictionary alloc] initWithObjectsAndKeys: @&quot;cd&quot;,@&quot;role&quot;,taskDic,@&quot;obj&quot;,@(0),@&quot;updateNum&quot;,nil];
+ *  &#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6; actionType == @&quot;deleteObject&quot;
+ *  NSDictionary  * dps = [[NSDictionary alloc] initWithObjectsAndKeys: @&quot;cd&quot;,@&quot;role&quot;,@{@&quot;id&quot;:@([deviceId integerValue])},@&quot;obj&quot;,nil];
 
-<span class="hljs-comment">/**
- * &#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x5931;&#x8D25;
- * <span class="hljs-doctag">@param</span> did &#x8BBE;&#x5907;id
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceUpdateFail</span><span class="hljs-params">(<span class="hljs-keyword">int</span> did)</span></span>;
+ *  &#x67E5;&#x8BE2;&#x5012;&#x8BA1;&#x65F6; actionType == @&quot;queryObject&quot;
+ *  NSDictionary  * dps = [[NSDictionary alloc] initWithObjectsAndKeys: @&quot;cd&quot;,@&quot;role&quot;,nil];
+ &#x67E5;&#x8BE2;&#x5012;&#x8BA1;&#x65F6;&#x56DE;&#x5305;
+ body == {
+             code = 1;                     //&#x72B6;&#x6001;&#xFF0C;code=1&#x65F6;&#x89E3;&#x6790;&#x5012;&#x8BA1;&#x65F6;&#x3002;
+             obj =  {
+                        id = 19381;           //&#x8BBE;&#x5907;did
+                        time = {
+                                hour = 1;             //&#x5C0F;&#x65F6;
+                                min = 0;              //&#x5206;&#x949F;
+                                sec = 51;             //&#x79D2;
+                                };
+                        trigger = {
+                                onoff = 1;            //&#x6267;&#x884C;&#x52A8;&#x4F5C;
+                                };
+                    };
+             role = cd;                    //&#x5012;&#x8BA1;&#x65F6;&#x5B57;&#x6BB5; @&#x201C;cd&#x201D;
+ }
+ */
++ (void)publishDps:(NSDictionary *)dps actionType:(NSString *)actionType deviceId:(NSString *)deviceId callback:(DataInteractionCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x65B9;&#x6CD5;">&#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x65B9;&#x6CD5;</h1>
+<pre><code class="lang-Objective-C">
+/**
+ *  &#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x65B9;&#x6CD5;
+ *  @param blockHandling     &#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ *  WHOActionType type       &#x6D88;&#x606F;&#x7C7B;&#x578B;
+ *  NSString *deviceId,      &#x6D88;&#x606F;&#x6765;&#x6E90;
+ *  NSDictionary *dict       &#x6D88;&#x606F;&#x660E;&#x7EC6;&#xFF08;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4E0A;&#x62A5;&#xFF0C;&#x8BBE;&#x5907;&#x4E0A;&#x4E0B;&#x7EBF;&#xFF0C;&#x8D26;&#x53F7;&#x79BB;&#x7EBF;&#xFF0C;&#x8BBE;&#x5907;&#x53D8;&#x66F4;&#xFF0C;&#x5B9A;&#x65F6;&#x53D8;&#x66F4;&#xFF0C;&#x667A;&#x80FD;&#x53D8;&#x66F4;&#xFF09;
+ */
++ (void)reciveDataInteractionCallback:(ReciveDataInteractionCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x76D1;&#x542C;&#x8BBE;&#x5907;&#x72B6;&#x6001;">&#x76D1;&#x542C;&#x8BBE;&#x5907;&#x72B6;&#x6001;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x76D1;&#x542C;&#x8BBE;&#x5907;&#x72B6;&#x6001;
+ *  @param deviceId          &#x8BBE;&#x5907;Id
+ *  @param blockHandling     &#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ *  WHOActionType type       &#x6D88;&#x606F;&#x7C7B;&#x578B;
+ *  NSDictionary *dict       &#x6D88;&#x606F;&#x660E;&#x7EC6; &#xFF08;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4E0A;&#x62A5;&#xFF0C;&#x8BBE;&#x5907;&#x4E0A;&#x4E0B;&#x7EBF;&#xFF09;
+ */
++ (void)reciveDataInteractionDeviceId:(NSString *)deviceId Callback:(ReciveDataInteractionCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x624B;&#x673A;&#x8FDE;&#x63A5;&#x8DEF;&#x7531;&#x5668;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;tcp">&#x624B;&#x673A;&#x8FDE;&#x63A5;&#x8DEF;&#x7531;&#x5668;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP</h1>
+<pre><code class="lang-Objective-C">
+/**
+ *  &#x624B;&#x673A;&#x8FDE;&#x63A5;&#x8DEF;&#x7531;&#x5668;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP
+ */
++ (void)startConnectTCPAndKeepActive;
+</code></pre>
+<h1 id="&#x624B;&#x673A;&#x65AD;&#x5F00;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x505C;&#x6B62;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;tcp">&#x624B;&#x673A;&#x65AD;&#x5F00;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x505C;&#x6B62;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x624B;&#x673A;&#x65AD;&#x5F00;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x505C;&#x6B62;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP
+ */
++ (void)stopConnectTcp;
+</code></pre>
+<h1 id="&#x65AD;&#x5F00;mqtt&#x8FDE;&#x63A5;-&#xFF08;&#x7528;&#x6237;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#xFF09;&#x53D6;&#x6D88;topics&#x8BA2;&#x9605;">&#x65AD;&#x5F00;MQTT&#x8FDE;&#x63A5; &#xFF08;&#x7528;&#x6237;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#xFF09;&#x53D6;&#x6D88;topics&#x8BA2;&#x9605;</h1>
+<pre><code class="lang-Objective-C">
+/**
+ *  &#x65AD;&#x5F00;MQTT&#x8FDE;&#x63A5; &#xFF08;&#x7528;&#x6237;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#xFF09;&#x53D6;&#x6D88;topics&#x8BA2;&#x9605;
+ */
++ (void)stopMQTTConnect;
+</code></pre>
+<h1 id="&#x57FA;&#x7840;&#x4FE1;&#x606F;1">&#x57FA;&#x7840;&#x4FE1;&#x606F;1</h1>
+<pre><code class="lang-Objective-C"> typedef NS_ENUM(UInt16, ControlCallBackCode) {
+    ControlCallBackOK = 0x0000,             // &#x63A7;&#x5236;&#xFF08;&#x83B7;&#x53D6;/&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#x6210;&#x529F;
+    ControlCallBackTimeout = 0x0001,        // &#x63A7;&#x5236;&#xFF08;&#x83B7;&#x53D6;/&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#x8D85;&#x65F6;
+    ControlCallBackFail = 0x0002,           // &#x63A7;&#x5236;&#xFF08;&#x83B7;&#x53D6;/&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#x5931;&#x8D25;
+ };
+ typedef NS_ENUM(UInt16, WHOActionOneType) {
+    WHOOneGET = 0x0001,                    // &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x8BE6;&#x60C5;
+    WHOOneINFORM = 0x0002,                 // &#x8BBE;&#x5907;&#x8BE6;&#x60C5;&#x4E0A;&#x62A5;
+    WHOOneLOGIN = 0x0003,                  // &#x8BBE;&#x5907;&#x767B;&#x5F55;
+    WHOOneDISCONN = 0x0004,                // &#x8BBE;&#x5907;&#x79BB;&#x7EBF;
+    WHOOneDIFFLOGIN = 0x0005,              // &#x7528;&#x6237;&#x4E0B;&#x7EBF;
+    WHOOneNOTIFY = 0x0006,                 // &#x6D88;&#x606F;&#x901A;&#x77E5;
+ };
+ typedef void(^ControlCallBack)(ControlCallBackCode controlCode);      //&#x8BBE;&#x5907;&#x64CD;&#x4F5C;&#x56DE;&#x8C03;
+ typedef void(^GETDeviceStatusCallBack)(ControlCallBackCode controlCode,DeviceModel *device);//&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x83B7;&#x53D6;&#x56DE;&#x8C03;
+ typedef void(^DeviceStatusReceiveCallBack)(WHOActionOneType type,DeviceModel *device,NSDictionary *dict);//&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x83B7;&#x53D6;&#x56DE;&#x8C03;
+ typedef void(^QueryCountDownCallBack)(ControlCallBackCode code,NSDictionary *body);            //&#x67E5;&#x8BE2;&#x5B9A;&#x65F6;&#x56DE;&#x8C03;
+</code></pre>
+<h1 id="&#x8BBE;&#x5907;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x8BBE;&#x5907;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">BaseControlModel
+/**
+ *  &#x8BBE;&#x5907;&#x5F00;&#x5173;(&#x516C;&#x6709;&#x63A7;&#x5236;&#x65B9;&#x6CD5;)
+ *  @param status            &#x8981;&#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C;&#xFF08;&#x5F00;&#x6216;&#x5173;&#xFF09;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;(&#x76F4;&#x63A5;&#x5237;&#x65B0;&#x8BBE;&#x5907;&#x6A21;&#x578B;onOff&#x5C5E;&#x6027;&#xFF0C;SDK&#x5DF2;&#x66F4;&#x65B0;)
+ */
++ (void)setAllOnOrOFF:(BOOL)status deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x83B7;&#x53D6;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x83B7;&#x53D6;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">
+/**
+ *  &#x83B7;&#x53D6;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x4FE1;&#x606F;
+ *  @param blockHandling     &#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x56DE;&#x8C03;(&#x76F4;&#x63A5;&#x5237;&#x65B0;&#x8BBE;&#x5907;&#x6A21;&#x578B;onOff&#x5C5E;&#x6027;&#xFF0C;SDK&#x5DF2;&#x66F4;&#x65B0;)
+ */
++ (void)getAllDevicesStatusCallback:(GETDeviceStatusCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x4E0A;&#x62A5;&#xFF08;&#x7CFB;&#x7EDF;&#x6D88;&#x606F;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x4E0A;&#x62A5;&#xFF08;&#x7CFB;&#x7EDF;&#x6D88;&#x606F;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x76D1;&#x542C;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x4E0A;&#x62A5;&#xFF08;&#x7CFB;&#x7EDF;&#x6D88;&#x606F;&#xFF09;
+ *  @param blockHandling     &#x83B7;&#x53D6;&#x7ED3;&#x679C;&#x56DE;&#x8C03;(&#x8BBE;&#x5907;&#x4E0A;&#x7EBF;&#xFF0C;&#x79BB;&#x7EBF;&#xFF0C;&#x4FE1;&#x606F;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x4F1A;&#x8C03;&#x7528;&#x6B64;&#x63A5;&#x53E3;&#xFF0C;&#x76F4;&#x63A5;&#x5237;&#x65B0;&#x8BBE;&#x5907;&#x6A21;&#x578B;deviceStatus&#xFF0C; onOff&#x5C5E;&#x6027;&#xFF0C;SDK&#x5DF2;&#x66F4;&#x65B0;)
+ *  &#x6839;&#x636E;WHOActionOneType&#x6765;&#x5224;&#x65AD;&#x4E0A;&#x62A5;&#x4FE1;&#x606F;&#x7C7B;&#x578B;&#xFF0C;&#x505A;&#x5BF9;&#x5E94;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x4E0A;&#x62A5;&#xFF0C;&#x8BBE;&#x5907;&#x4E0A;&#x4E0B;&#x7EBF;&#xFF0C;&#x8D26;&#x53F7;&#x79BB;&#x7EBF;&#xFF0C;&#x8BBE;&#x5907;&#x53D8;&#x66F4;&#xFF0C;&#x5B9A;&#x65F6;&#x53D8;&#x66F4;&#xFF0C;&#x667A;&#x80FD;&#x53D8;&#x66F4;&#x7B49;
+ */
++ (void)receiveAllDevicesStatusCallback:(DeviceStatusReceiveCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x6DFB;&#x52A0;&#x5012;&#x8BA1;&#x65F6;&#xFF08;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x53EA;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x6DFB;&#x52A0;&#x5012;&#x8BA1;&#x65F6;&#xFF08;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x53EA;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x5012;&#x8BA1;&#x65F6;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x6DFB;&#x52A0;&#x5012;&#x8BA1;&#x65F6;&#xFF08;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x53EA;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x5012;&#x8BA1;&#x65F6;&#xFF09;
+ *  @param hour              &#x5012;&#x8BA1;&#x65F6;&#xFF1A;&#x5C0F;&#x65F6;
+ *  @param min               &#x5012;&#x8BA1;&#x65F6;&#xFF1A;&#x5206;&#x949F;
+ *  @param action            &#x5012;&#x8BA1;&#x65F6;&#x52A8;&#x4F5C;{&quot;onoff&quot;:&quot;1&quot;}
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x6DFB;&#x52A0;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)addCountDownHour:(int)hour min:(int)min action:(NSDictionary *)action deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x5220;&#x9664;&#x5012;&#x8BA1;&#x65F6;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x5220;&#x9664;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)deleteCountDownDeviceId:(NSString *)deviceId  callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x67E5;&#x627E;&#x5012;&#x8BA1;&#x65F6;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x67E5;&#x627E;&#x5012;&#x8BA1;&#x65F6;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x67E5;&#x627E;&#x5012;&#x8BA1;&#x65F6;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+
+ 22000+sub&#x9519;&#x8BEF;&#x7801;
+ sub&#x9519;&#x8BEF;&#x7801;    &#x8BF4;&#x660E;
+ &#x901A;&#x7528;&#x9519;&#x8BEF;&#x7801;&#xFF08;0~100&#xFF09;
+ 1          &#x62A5;&#x6587;&#x5185;&#x5BB9;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x89E3;&#x6790;&#x5931;&#x8D25;
+ 2          &#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x6EA2;&#x51FA;
+ &#x56FA;&#x4EF6;&#x66F4;&#x65B0;&#x9519;&#x8BEF;&#x7801;&#xFF08;100~130&#xFF09;
+ 100        &#x56FA;&#x4EF6;&#x66F4;&#x65B0;host&#x4E0D;&#x6B63;&#x786E;
+ 101        &#x56FA;&#x4EF6;&#x66F4;&#x65B0;&#x7528;&#x6237;&#x540D;&#x6216;&#x5BC6;&#x7801;&#x4E0D;&#x6B63;&#x786E;
+ 102        &#x56FA;&#x4EF6;&#x66F4;&#x65B0;&#x56FA;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;
+ 103        &#x56FA;&#x4EF6;&#x66F4;&#x65B0;&#x4E0B;&#x8F7D;&#x8D85;&#x65F6;
+ 104        &#x56FA;&#x4EF6;&#x66F4;&#x65B0;&#x8FDB;&#x884C;&#x4E2D;
+ 105        &#x5F53;&#x524D;&#x56FA;&#x4EF6;&#x7248;&#x672C;&#x53F7;&#x4E0D;&#x4F4E;&#x4E8E;&#x5347;&#x7EA7;&#x7684;&#x7248;&#x672C;&#x53F7;
+ &#x667A;&#x80FD;&#x64CD;&#x4F5C;&#x9519;&#x8BEF;&#x7801;&#x56FA;&#x4EF6;&#x66F4;&#x65B0;&#x9519;&#x8BEF;&#x7801;&#xFF08;130~160)
+ 131        &#x667A;&#x80FD;&#x5DF2;&#x5B58;&#x5728;
+ 132        &#x667A;&#x80FD;&#x4E0D;&#x5B58;&#x5728;
+ body == {
+            code = 1;                     //&#x72B6;&#x6001;&#xFF0C;code=1&#x65F6;&#x89E3;&#x6790;&#x5012;&#x8BA1;&#x65F6;&#x3002;
+            obj =  {
+                    id = 19381;           //&#x8BBE;&#x5907;did
+                    time = {
+                            hour = 1;     //&#x5C0F;&#x65F6;
+                            min = 0;      //&#x5206;&#x949F;
+                            sec = 51;     //&#x79D2;
+                            };
+                    trigger = {
+                            onoff = 1;        //&#x6267;&#x884C;&#x52A8;&#x4F5C;
+                            };
+                  };
+            role = cd;                    //&#x5012;&#x8BA1;&#x65F6;&#x5B57;&#x6BB5; @&#x201C;cd&#x201D;
+        }
+ */
++ (void)queryCountDownDeviceId:(NSString *)deviceId  callback:(QueryCountDownCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x624B;&#x673A;&#x8FDE;&#x63A5;&#x8DEF;&#x7531;&#x5668;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;tcp&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x624B;&#x673A;&#x8FDE;&#x63A5;&#x8DEF;&#x7531;&#x5668;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x624B;&#x673A;&#x8FDE;&#x63A5;&#x8DEF;&#x7531;&#x5668;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP
+ */
++ (void)startConnectTCPAndKeepActive;
+</code></pre>
+<h1 id="&#x624B;&#x673A;&#x65AD;&#x5F00;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x505C;&#x6B62;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;tcp&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x624B;&#x673A;&#x65AD;&#x5F00;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x505C;&#x6B62;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x624B;&#x673A;&#x65AD;&#x5F00;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x505C;&#x6B62;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#x5305;&#x548C;&#x91CD;&#x8FDE;TCP
+ */
++ (void)stopConnectTcp;
+</code></pre>
+<h1 id="&#x65AD;&#x5F00;mqtt&#x8FDE;&#x63A5;-&#xFF08;&#x7528;&#x6237;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#xFF09;&#x53D6;&#x6D88;topics&#x8BA2;&#x9605;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x65AD;&#x5F00;MQTT&#x8FDE;&#x63A5; &#xFF08;&#x7528;&#x6237;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#xFF09;&#x53D6;&#x6D88;topics&#x8BA2;&#x9605;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x65AD;&#x5F00;MQTT&#x8FDE;&#x63A5; &#xFF08;&#x7528;&#x6237;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#xFF09;&#x53D6;&#x6D88;topics&#x8BA2;&#x9605;
+ */
++ (void)stopMQTTConnect;
+</code></pre>
+<h1 id="&#x8BBE;&#x5907;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x5177;&#x4F53;&#x6A21;&#x578B;&#x63A7;&#x5236;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x8BBE;&#x5907;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x5177;&#x4F53;&#x6A21;&#x578B;&#x63A7;&#x5236;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C"> ToshibaCeilingLightModel
+ typedef void(^receiveCeilingLightCallBack)(WHOActionOneType type,ToshibaCeilingLightModel *ceilingModel,NSDictionary *dict);
+ typedef void(^GETToshibaCeilingLightStatusCallBack)(ControlCallBackCode controlCode,ToshibaCeilingLightModel *ceilingModel);//&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x83B7;&#x53D6;&#x56DE;&#x8C03;
+ //@property (nonatomic,assign)BOOL status;//&#x4E3B;&#x706F;&#x3001;&#x591C;&#x706F;&#x4E92;&#x65A5;&#xFF0C;&#x603B;&#x5F00;&#x5173;&#x5F00;&#x53EA;&#x6253;&#x5F00;&#x4E3B;&#x3001;&#x591C;&#x706F;&#x7684;&#x8BB0;&#x5FC6;&#x72B6;&#x6001;
+ @property (nonatomic,assign)BOOL status1;                  /**&lt;&#x4E3B;&#x706F;*/
+ @property (nonatomic,assign)BOOL status2;                  /**&lt;&#x591C;&#x706F;*/
+ @property (nonatomic,assign)NSInteger brightness;          /**&lt;&#x4E3B;&#x706F;&#x7684;&#x4EAE;&#x5EA6;&#x503C;*/
+ @property (nonatomic,assign)NSInteger cct;                 /**&lt;&#x4E3B;&#x706F;&#x7684;&#x8272;&#x6E29;&#x503C;*/
+ @property (nonatomic,assign)NSInteger brightness_night;    /**&lt;&#x591C;&#x706F;&#x7684;&#x4EAE;&#x5EA6;&#x503C;*/
+ @property (nonatomic,assign)NSInteger mode;                /**&lt;&#x706F;&#x7684;&#x60C5;&#x666F;&#x6A21;&#x5F0F;*/
+ @property (nonatomic,assign)NSInteger cd_time;             /**
+                                                                0~0xFF,
+                                                                0 &#x65E0;&#x5012;&#x8BA1;&#x65F6;&#x6216;&#x5012;&#x8BA1;&#x65F6;&#x7ED3;&#x675F;
+                                                                ...
+                                                                0x3C &#x8FD8;&#x6709; 60 &#x5206;&#x949F;(&#x663E;&#x793A;&#x201C;60 &#x5206;&#x949F;&#x540E;&#x6D88;&#x706F;&#x201D;)
+                                                                0xFF &#x65E0;&#x6548;&#x503C;
+                                                            */
+</code></pre>
+<h1 id="&#x76D1;&#x542C;&#x8BBE;&#x5907;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF08;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x76D1;&#x542C;&#x8BBE;&#x5907;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF08;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x76D1;&#x542C;&#x8BBE;&#x5907;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF08;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF09;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)receiveToshibaCeilingLightWithDeviceId:(NSString *)deviceId callback:(receiveCeilingLightCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x67E5;&#x8BE2;&#x8BBE;&#x5907;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF08;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x67E5;&#x8BE2;&#x8BBE;&#x5907;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF08;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF09;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x67E5;&#x8BE2;&#x8BBE;&#x5907;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x6570;&#x636E;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++(void)getDeviceToshibaCeilingLightWithDeviceId:(NSString *)deviceId callback:(GETToshibaCeilingLightStatusCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x4E3B;&#x706F;&#x5F00;&#x5173;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x4E3B;&#x706F;&#x5F00;&#x5173;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x4E3B;&#x706F;&#x5F00;&#x5173;
+ *  @param status            &#x8981;&#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C;&#xFF08;&#x5F00;&#x6216;&#x5173;&#xFF09; 
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)setStatus1OnOrOFF:(BOOL)status deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x591C;&#x706F;&#x5F00;&#x5173;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x591C;&#x706F;&#x5F00;&#x5173;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x591C;&#x706F;&#x5F00;&#x5173;
+ *  @param status            &#x8981;&#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C;&#xFF08;&#x5F00;&#x6216;&#x5173;&#xFF09;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)setStatus2OnOrOFF:(BOOL)status deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x4EAE;&#x5EA6;&#x503C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x4EAE;&#x5EA6;&#x503C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x4EAE;&#x5EA6;&#x503C;
+ *  @param brightness        &#x8981;&#x8BBE;&#x7F6E;&#x7684;&#x4E3B;&#x706F;&#x4EAE;&#x5EA6;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)setBrightness:(NSInteger)brightness deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x8BBE;&#x7F6E;&#x591C;&#x706F;&#x4EAE;&#x5EA6;&#x503C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x8BBE;&#x7F6E;&#x591C;&#x706F;&#x4EAE;&#x5EA6;&#x503C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x8BBE;&#x7F6E;&#x591C;&#x706F;&#x4EAE;&#x5EA6;&#x503C;
+ *  @param brightness        &#x8981;&#x8BBE;&#x7F6E;&#x7684;&#x591C;&#x706F;&#x4EAE;&#x5EA6;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)setBrightnessNight:(NSInteger)brightness deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x7684;&#x8272;&#x6E29;&#x503C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x7684;&#x8272;&#x6E29;&#x503C;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x7684;&#x8272;&#x6E29;&#x503C;
+ *  @param cct               &#x8981;&#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x7684;&#x8272;&#x6E29;&#x503C;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)setCCT:(int)cct deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
+</code></pre>
+<h1 id="&#x8BBE;&#x7F6E;&#x706F;&#x7684;&#x60C5;&#x666F;&#x6A21;&#x5F0F;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;">&#x8BBE;&#x7F6E;&#x706F;&#x7684;&#x60C5;&#x666F;&#x6A21;&#x5F0F;&#xFF08;&#x65B9;&#x5F0F;2&#xFF09;</h1>
+<pre><code class="lang-Objective-C">/**
+ *  &#x8BBE;&#x7F6E;&#x706F;&#x7684;&#x60C5;&#x666F;&#x6A21;&#x5F0F;
+ *  @param mode              &#x8981;&#x8BBE;&#x7F6E;&#x4E3B;&#x706F;&#x7684;&#x60C5;&#x666F;&#x6A21;&#x5F0F;
+ *  @param deviceId          &#x8BBE;&#x5907;did
+ *  @param blockHandling     &#x63A7;&#x5236;&#x7ED3;&#x679C;&#x56DE;&#x8C03;
+ */
++ (void)setMode:(int)mode deviceId:(NSString *)deviceId callback:(ControlCallBack)blockHandling;
 </code></pre>
 <h1 id="devicemodel&#x6570;&#x636E;&#x6A21;&#x578B;">DeviceModel&#x6570;&#x636E;&#x6A21;&#x578B;</h1>
 <table>
@@ -594,7 +815,7 @@
 <td>&#x662F;&#x5426;&#x975E;&#x6CD5;&#x8BBE;&#x5907;</td>
 </tr>
 <tr>
-<td>daily</td>
+<td>isDaily</td>
 <td>&#x6570;&#x5B57;</td>
 <td>&#x662F;&#x5426;&#x5E38;&#x7528;&#x8BBE;&#x5907; 0&#x4E0D;&#x662F; 1&#x662F;</td>
 </tr>
@@ -602,31 +823,6 @@
 <td>localStatus</td>
 <td>&#x6570;&#x5B57;</td>
 <td>&#x662F;&#x5426;&#x672C;&#x5730;&#x5728;&#x7EBF; 0&#x79BB;&#x7EBF; 1&#x5728;&#x7EBF;</td>
-</tr>
-<tr>
-<td>regionCode</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x5730;&#x533A;&#x7F16;&#x7801;</td>
-</tr>
-<tr>
-<td>shareInfoId</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x5206;&#x4EAB;&#x4FE1;&#x606F;id</td>
-</tr>
-<tr>
-<td>nudStatus</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x5173;&#x7CFB;&#x72B6;&#x6001;</td>
-</tr>
-<tr>
-<td>relationType</td>
-<td>&#x6570;&#x5B57;</td>
-<td>&#x5173;&#x7CFB;&#x7C7B;&#x578B; 1app&#x6DFB;&#x52A0; 2&#x8BBE;&#x5907;&#x5206;&#x4EAB; 3&#x5BB6;&#x5EAD;&#x5206;&#x4EAB;</td>
-</tr>
-<tr>
-<td>deviceAttrs</td>
-<td>&#x952E;&#x503C;&#x5BF9;</td>
-<td>&#x8BBE;&#x5907;&#x5C5E;&#x6027;&#x96C6;&#x5408;</td>
 </tr>
 </tbody>
 </table>
@@ -673,7 +869,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.设备控制","level":"1.7","depth":1,"next":{"title":"7.设备定时","level":"1.8","depth":1,"path":"part7/README.md","ref":"part7/README.md","articles":[]},"previous":{"title":"5.房间管理","level":"1.6","depth":1,"path":"part5/README.md","ref":"part5/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/README.md","mtime":"2019-08-16T08:25:52.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T08:36:13.014Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.设备控制","level":"1.7","depth":1,"next":{"title":"7.设备定时","level":"1.8","depth":1,"path":"part7/README.md","ref":"part7/README.md","articles":[]},"previous":{"title":"5.房间管理","level":"1.6","depth":1,"path":"part5/README.md","ref":"part5/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/README.md","mtime":"2019-08-20T03:06:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:15:34.670Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -19,7 +19,7 @@ void addRoom(int hid,String name,String icon,ResultCallBack callBack)
  * @param hid      家庭id
  * @param callBack 结果回调
  */
-void getRoomList(int hid,ResultCallBack<List<RoomBean>> callBack);
+void getRoomList(int hid,ResultCallBack<List<RoomModel>> callBack);
 ```
 
 #更新房间信息
@@ -107,7 +107,7 @@ void onRoomInfoChanged(int rid);
  */
 void onRoomDeviceChanged(int rid);
 ```
-#房间模型类
+#RoomModel数据模型
 | 字段名称       | 类型  | 字段说明            |
 |------------|-----|-----------------|
 | userId     | 数字  | 用户id            |

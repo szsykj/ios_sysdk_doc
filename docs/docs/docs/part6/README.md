@@ -162,7 +162,7 @@ void onDeviceUpdateSuccess(int did);
 void onDeviceUpdateFail(int did);
 ```
 
-#设备模型类
+#DeviceModel数据模型
 | 字段名称            | 类型   | 字段说明                    |
 |-----------------|------|-------------------------|
 | userId          | 数字   | 用户id                    |

@@ -40,7 +40,7 @@ void stopCountDown(int did, ResultCallBack resultCallBack);
 |------------|---------|-----|------------------------------------------------------------------------------------------|
 | id         | 倒计时任务的ID  | 数字  |   |
 | deviceId   | 设备的did       | 数字  |  |
-| targetTime | 目标执行时间     | long | 执行的时间戳 | 
+| targetTime | 目标执行时间     | long | 动作执行的时间戳 | 
 | target     | 执行动作       | 字符串 | {"onoff":"1"}|
 
 
