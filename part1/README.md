@@ -1,10 +1,12 @@
-#集成SDK
+
+#快速集成
 本章介绍如何集成SDK,请使用Xcode来开发
 
 #创建工程
 在Xcode中建立你的工程，直接把SYSDK.framework和SYSDK.bundle拉进项目。
 
 # 第三方pod支持
+在Podfile文件中添加以下内容：
 
 ```Objective-C
 pod 'YYModel'
@@ -15,8 +17,21 @@ pod 'Realm'
 pod 'AFNetworking', '~> 3.0'
 pod 'CocoaAsyncSocket'
 ```
+然后在项目根目录下执行pod update命令，集成第三方库。
+
 # Xcode 配置
 在iOS 12以后不能直接获取手机Wi-Fi信息，需要在Xcode配置 ：项目Target -> Capabilities -> Access WiFi Information -> on
+从 iOS 13 开始，如果没有开启地理位置权限，手机将获取不到正确的 SSID （在第已开启 Wi-Fi 权限的前提下）, 在此情况下，系统会默认返回 WLAN or Wi-Fi，以下是 Apple 的官方邮件说明
+```Objective-C
+As we announced at WWDC19, we're making changes to further protect user privacy and prevent unauthorized location tracking. Starting with iOS 13, the CNCopyCurrentNetworkInfo API will no longer return valid Wi-Fi SSID and BSSID information. Instead, the information returned by default will be: 
+
+SSID: “Wi-Fi” or “WLAN” (“WLAN" will be returned for the China SKU)
+BSSID: "00:00:00:00:00:00"
+```
+1.确认 app 已开启地理位置权限
+
+2.确认通过系统方法获取的 BSSID 为 00:00:00:00:00:00 则认为是系统的默认返回，该结果不可用，需要开发者另外处理，比如手动输入 Wi-Fi 名称
+
 
 # SDK初始化
 在AppDelegate中初始化sdk。
@@ -26,6 +41,9 @@ pod 'CocoaAsyncSocket'
     [SYSDKConfig defaultConfig].server =  Toshiba_SERVER;//设置SDK服务器
     [SYSDKConfig defaultConfig].saveLog = NO;            //是否保存log
     [SYSDKConfig defaultConfig].languageCode = @"en";    //设置SDK配置语言
+    [SYSDKConfig defaultConfig].hasMesh = YES;           //是否包含mesh
+    [SYSDKConfig defaultConfig].verson = @"v1";         //设置服务器版本，默认设置为@"v1"
+    [SYWHOUDPManager shareInstance].deviceType = 1;    //0:测试版设备  1:正式版本设备  2:全部
     return YES;
 }
 ```

@@ -75,5 +75,12 @@
 + (void)updateHomeWithHomeId:(int)homeId homeLocation:(NSString *)homeLocation name:(NSString *)name success:(void (^)(SYResponeHCStringResult *result))success failure:(void (^)(NSError *error))failure;
 ```
 
-
-
+#获取更新家庭mesh信息 (用户登录后需获取)
+```Objective-C
+/**
+*  获取mesh文件信息 （用户登录后，获取本地群组数据，判断群组是否含有本地数据，如果有，就同步一下）
+*  @param success              请求成功后的回调
+*  @param failure              请求失败后的回调
+*/
++ (void)getHomeMeshDetail:(void (^)(SYResponeHCDictionaryResult *result))success failure:(void (^)(NSError *error))failure;
+```
