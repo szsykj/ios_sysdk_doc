@@ -1,6 +1,6 @@
 
 #快速集成
-本章介绍如何集成SDK,请使用Xcode来开发
+本章介绍如何集成SDK,请使用Xcode来开发（部分新增接口未及时跟新，请参考SDK里接口注视说明）
 
 #创建工程
 在Xcode中建立你的工程，直接把SYSDK.framework和SYSDK.bundle拉进项目。
@@ -10,14 +10,17 @@
 
 ```Objective-C
 pod 'YYModel'
+pod 'SAMKeychain'    
 pod 'MQTTClient'
 pod 'MJExtension'
 pod 'AliyunOSSiOS'
 pod 'Realm'
-pod 'AFNetworking', '~> 3.0'
+pod 'AFNetworking', '~> 4.0'
 pod 'CocoaAsyncSocket'
+pod 'Reachability'
+pod 'EspTouch', '~> 5.3.2'
 ```
-然后在项目根目录下执行pod update命令，集成第三方库。
+然后在项目根目录下执行pod update/install命令，集成第三方库。
 
 # Xcode 配置
 在iOS 12以后不能直接获取手机Wi-Fi信息，需要在Xcode配置 ：项目Target -> Capabilities -> Access WiFi Information -> on
@@ -42,8 +45,12 @@ BSSID: "00:00:00:00:00:00"
     [SYSDKConfig defaultConfig].saveLog = NO;            //是否保存log
     [SYSDKConfig defaultConfig].languageCode = @"en";    //设置SDK配置语言
     [SYSDKConfig defaultConfig].hasMesh = YES;           //是否包含mesh
-    [SYSDKConfig defaultConfig].verson = @"v1";         //设置服务器版本，默认设置为@"v1"
+    [SYSDKConfig defaultConfig].verson = @"v2";         //设置服务器版本，默认设置为@"v1"
     [SYWHOUDPManager shareInstance].deviceType = 1;    //0:测试版设备  1:正式版本设备  2:全部
+    [SYSDKConfig defaultConfig].hasVendors = YES;      //是否支持多厂商设备配网
+    [SYSDKConfig defaultConfig].AppId = APPID;          //App在后台注册时产生的key，
+    
+    
     return YES;
 }
 ```
