@@ -357,12 +357,12 @@
                                 <h1 id="&#x96C6;&#x6210;sdk">&#x96C6;&#x6210;SDK</h1>
 <p>&#x672C;&#x7AE0;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x96C6;&#x6210;SDK,&#x8BF7;&#x4F7F;&#x7528;Xcode&#x6765;&#x5F00;&#x53D1;</p>
 <h1 id="&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;">&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;</h1>
-<p>&#x5728;Xcode&#x4E2D;&#x5EFA;&#x7ACB;&#x4F60;&#x7684;&#x5DE5;&#x7A0B;&#xFF0C;&#x76F4;&#x63A5;&#x628A;SYSDK.framework&#x62C9;&#x8FDB;&#x9879;&#x76EE;&#x3002;</p>
+<p>&#x5728;Xcode&#x4E2D;&#x5EFA;&#x7ACB;&#x4F60;&#x7684;&#x5DE5;&#x7A0B;&#xFF0C;&#x76F4;&#x63A5;&#x628A;SYSDK.framework&#x548C;SYSDK.bundle&#x62C9;&#x8FDB;&#x9879;&#x76EE;&#x3002;</p>
 <h1 id="&#x7B2C;&#x4E09;&#x65B9;pod&#x652F;&#x6301;">&#x7B2C;&#x4E09;&#x65B9;pod&#x652F;&#x6301;</h1>
-<pre><code class="lang-Objective-C">pod &apos;MQTTClient&apos;
+<pre><code class="lang-Objective-C">pod &apos;YYModel&apos;
+pod &apos;MQTTClient&apos;
 pod &apos;MJExtension&apos;
 pod &apos;AliyunOSSiOS&apos;
-pod &apos;Bugly&apos;
 pod &apos;Realm&apos;
 pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0&apos;
 pod &apos;CocoaAsyncSocket&apos;
@@ -372,33 +372,94 @@ pod &apos;CocoaAsyncSocket&apos;
 <h1 id="sdk&#x521D;&#x59CB;&#x5316;">SDK&#x521D;&#x59CB;&#x5316;</h1>
 <p>&#x5728;AppDelegate&#x4E2D;&#x521D;&#x59CB;&#x5316;sdk&#x3002;</p>
 <pre><code class="lang-Objective-C">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [SYSDKConfig defaultConfig].saveLog = NO;
-    [SYSDKConfig defaultConfig].languageCode = @&quot;en&quot;;
-    [UserManager shareInstance];
-    [EVONetStates shareInstance];
+    [SYSDKConfig defaultConfig].server =  Toshiba_SERVER;//&#x8BBE;&#x7F6E;SDK&#x670D;&#x52A1;&#x5668;
+    [SYSDKConfig defaultConfig].saveLog = NO;            //&#x662F;&#x5426;&#x4FDD;&#x5B58;log
+    [SYSDKConfig defaultConfig].languageCode = @&quot;en&quot;;    //&#x8BBE;&#x7F6E;SDK&#x914D;&#x7F6E;&#x8BED;&#x8A00;
     return YES;
 }
 </code></pre>
+<h1 id="pid&#x7BA1;&#x7406;&#x521D;&#x59CB;&#x5316;">PID&#x7BA1;&#x7406;&#x521D;&#x59CB;&#x5316;</h1>
+<p>&#x6839;&#x636E;&#x8BBE;&#x5907;&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#x6587;&#x6863;&#xFF0C;&#x5916;&#x90E8;&#x914D;&#x7F6E;&#x5BF9;&#x5E94;&#x7684;PID&#xFF0C;&#x4EE5;&#x65E5;&#x672C;&#x4E1C;&#x829D;&#x5438;&#x9876;&#x706F;&#x6570;&#x636E;&#x6A21;&#x578B;&#xFF08;Data Model&#xFF09;&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<h2 id="&#x65E5;&#x672C;&#x4E1C;&#x829D;&#x5438;&#x9876;&#x706F;&#x6570;&#x636E;&#x6A21;&#x578B;toshibaceilinglight&#x521B;&#x5EFA;">&#x65E5;&#x672C;&#x4E1C;&#x829D;&#x5438;&#x9876;&#x706F;&#x6570;&#x636E;&#x6A21;&#x578B;ToshibaCeilingLight&#x521B;&#x5EFA;</h2>
+<p>ToshibaCeilingLight&#x6A21;&#x578B;&#x7EE7;&#x627F;BaseDeviceModel&#xFF0C;</p>
+<pre><code class="lang-Objective-C">//ToshibaCeilingLight.h
+#import &quot;BaseDeviceModel.h&quot;
+NS_ASSUME_NONNULL_BEGIN
+@interface ToshibaCeilingLight : BaseDeviceModel
+- (instancetype)init;
+@end
+</code></pre>
+<pre><code class="lang-Objective-C">//  ToshibaCeilingLight.m
+#import &quot;ToshibaCeilingLight.h&quot;
+#import &quot;NSBundle+SYSDK.h&quot;
+
+@implementation ToshibaCeilingLight
+- (instancetype)init{
+if (self = [super init]) {
+[self initConfig];
+[self initAutoIntelling];
+}
+return self;
+}
+- (void)initConfig{
+self.deviceConfig                    = [[DeviceConfig alloc] init];
+self.deviceConfig.pid                = @&quot;00010104000D01&quot;;
+self.deviceConfig.name               = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_name&quot;];
+self.deviceConfig.controlVC          = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_controlVC&quot;];;
+self.deviceConfig.childModel         = @&quot;ToshibaCeilingLightModel&quot;;
+self.deviceConfig.deviceOn           = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_deviceOn&quot;];
+self.deviceConfig.deviceOff          = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_deviceOff&quot;];
+self.deviceConfig.device_icon        = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_device_icon&quot;];
+self.deviceConfig.deviceOn_icon      = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_deviceOn_icon&quot;];
+self.deviceConfig.deviceOff_icon     = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_deviceOff_icon&quot;];
+self.deviceConfig.deviceAuto_icon    = [NSBundle sy_localizedStringForKey:@&quot;00010104000D01_deviceAuto_icon&quot;];
+self.deviceConfig.isHaveOnOff        = YES;
+self.deviceConfig.isHaveMCU          = YES;
+self.deviceConfig.isAutoCondition    = YES;
+self.deviceConfig.isAutoImplement    = YES;
+}
+- (void)initAutoIntelling{
+//&#x8054;&#x52A8;&#x6761;&#x4EF6;
+self.intelling = [[SYIntellingModel alloc] init];
+[self.intelling addIntellingConditionUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_status_redge_1&quot;] name:@&quot;status&quot; mode:@&quot;redge&quot; num:@&quot;1&quot;];
+[self.intelling addIntellingConditionUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_status_fedge_0&quot;] name:@&quot;status&quot; mode:@&quot;fedge&quot; num:@&quot;0&quot;];
+[self.intelling addIntellingConditionUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_status1_redge_1&quot;] name:@&quot;status1&quot; mode:@&quot;redge&quot; num:@&quot;1&quot;];
+[self.intelling addIntellingConditionUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_status2_redge_1&quot;] name:@&quot;status2&quot; mode:@&quot;redge&quot; num:@&quot;1&quot;];
+//&#x8054;&#x52A8;&#x6267;&#x884C;
+[self.intelling addIntellingImplementUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_onoff_1&quot;] cmdName:@&quot;onoff&quot; cmdId:@&quot;1&quot;];
+[self.intelling addIntellingImplementUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_onoff_0&quot;] cmdName:@&quot;onoff&quot; cmdId:@&quot;0&quot;];
+[self.intelling addIntellingImplementUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_onoff1_1&quot;] cmdName:@&quot;onoff1&quot; cmdId:@&quot;1&quot;];
+[self.intelling addIntellingImplementUI:[NSBundle sy_localizedStringForKey:@&quot;00010104000D01_onoff2_1&quot;] cmdName:@&quot;onoff2&quot; cmdId:@&quot;1&quot;];
+}
+@end
+</code></pre>
+<h2 id="&#x65E5;&#x672C;&#x4E1C;&#x829D;&#x5438;&#x9876;&#x706F;&#x6570;&#x636E;&#x6A21;&#x578B;toshibaceilinglight&#x521D;&#x59CB;&#x5316;">&#x65E5;&#x672C;&#x4E1C;&#x829D;&#x5438;&#x9876;&#x706F;&#x6570;&#x636E;&#x6A21;&#x578B;ToshibaCeilingLight&#x521D;&#x59CB;&#x5316;</h2>
+<pre><code class="lang-Objective-C">- (void)addPID{
+ToshibaCeilingLight *light = [[ToshibaCeilingLight alloc] init];
+[[WHO_PIDManager shareInstance]addPIDManagerWithPID:@&quot;00010104000D01&quot; baseDeviceModel:light];
+}
+</code></pre>
 <h1 id="sysdkbundle-&#x914D;&#x7F6E;&#x53CA;&#x4F5C;&#x7528;&#x8BF4;&#x660E;">SYSDK.bundle &#x914D;&#x7F6E;&#x53CA;&#x4F5C;&#x7528;&#x8BF4;&#x660E;</h1>
-<p>SDK&#x91CC;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x591A;&#x8BED;&#x8A00;</p>
-<pre><code class="lang-Objective-C">&quot;pid_name&quot; = &quot;&#x4E1C;&#x829D;&#x5438;&#x9876;&#x706F;&quot;;                 /**&lt;&#x8BBE;&#x5907;&#x540D;&#x5B57;*/
-&quot;pid_controlVC&quot; = &quot;00010104000D01Controller&quot;; /**&lt;&#x63A7;&#x5236;&#x9875;&#x9762;&#x63A7;&#x5236;&#x5668;VC&#x540D;&#x79F0;*/
-&quot;pid_deviceOn&quot; = &quot;&#x6253;&#x5F00;&quot;;                  /**&lt;&#x8BBE;&#x5907;&#x6253;&#x5F00;&#x63CF;&#x8FF0;*/
-&quot;pid_deviceOff&quot; = &quot;&#x5173;&#x95ED;&quot;;                 /**&lt;&#x8BBE;&#x5907;&#x5173;&#x95ED;&#x63CF;&#x8FF0;*/
-&quot;pid_device_icon&quot; = &quot;device_icon&quot;;                  /**&lt;&#x8BBE;&#x5907;&#x9ED8;&#x8BA4;&#x56FE;&#x6807;*/
-&quot;pid_deviceOn_icon&quot; = &quot;deviceOn_icon&quot;;                /**&lt;&#x8BBE;&#x5907;&#x6253;&#x5F00;&#x56FE;&#x6807;*/
-&quot;pid_deviceOff_icon&quot; = &quot;deviceOff_icon&quot;;               /**&lt;&#x8BBE;&#x5907;&#x5173;&#x95ED;&#x56FE;&#x6807;*/
-&quot;pid_deviceAuto_icon&quot; = &quot;deviceAuto_icon&quot;;              /**&lt;&#x8BBE;&#x5907;&#x667A;&#x80FD;&#x56FE;&#x6807;*/
+<p>SDK&#x91CC;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x591A;&#x8BED;&#x8A00;
+SYSDK.bundle &#x952E;&#x503C;&#x5BF9;&#x662F;&#x6839;&#x636E;&#x8BBE;&#x5907;&#x7684;&#x8BBE;&#x5907;&#x6A21;&#x578B;&#x6765;&#x8BBE;&#x7F6E;</p>
+<pre><code class="lang-Objective-C">&quot;pid_name&quot; = &quot;&#x4E1C;&#x829D;&#x5438;&#x9876;&#x706F;&quot;;                       /**&lt;&#x8BBE;&#x5907;&#x540D;&#x5B57;            &#x5916;&#x90E8;&#x4E3B;&#x9875;&#x9762;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;       */
+&quot;pid_controlVC&quot; = &quot;00010104000D01Controller&quot;;  /**&lt;&#x63A7;&#x5236;&#x9875;&#x9762;&#x63A7;&#x5236;&#x5668;VC&#x540D;&#x79F0;  &#x5916;&#x90E8;&#x4E3B;&#x9875;&#x9762;&#x8FDB;&#x5165;&#x8BBE;&#x5907;&#x8BE6;&#x60C5;&#x9875;&#x9762;&#x65F6;&#x4F7F;&#x7528; */
+&quot;pid_deviceOn&quot; = &quot;&#x6253;&#x5F00;&quot;;                        /**&lt;&#x8BBE;&#x5907;&#x6253;&#x5F00;&#x63CF;&#x8FF0;         &#x5916;&#x90E8;&#x4E3B;&#x9875;&#x9762;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;       */
+&quot;pid_deviceOff&quot; = &quot;&#x5173;&#x95ED;&quot;;                       /**&lt;&#x8BBE;&#x5907;&#x5173;&#x95ED;&#x63CF;&#x8FF0;         &#x5916;&#x90E8;&#x4E3B;&#x9875;&#x9762;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;       */
+&quot;pid_device_icon&quot; = &quot;device_icon&quot;;             /**&lt;&#x8BBE;&#x5907;&#x9ED8;&#x8BA4;&#x56FE;&#x6807;         &#x5916;&#x90E8;&#x4E3B;&#x9875;&#x9762;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;       */
+&quot;pid_deviceOn_icon&quot; = &quot;deviceOn_icon&quot;;         /**&lt;&#x8BBE;&#x5907;&#x6253;&#x5F00;&#x56FE;&#x6807;         &#x5916;&#x90E8;&#x4E3B;&#x9875;&#x9762;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;       */
+&quot;pid_deviceOff_icon&quot; = &quot;deviceOff_icon&quot;;       /**&lt;&#x8BBE;&#x5907;&#x5173;&#x95ED;&#x56FE;&#x6807;         &#x5916;&#x90E8;&#x4E3B;&#x9875;&#x9762;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;       */
+&quot;pid_deviceAuto_icon&quot; = &quot;deviceAuto_icon&quot;;     /**&lt;&#x8BBE;&#x5907;&#x667A;&#x80FD;&#x56FE;&#x6807;         &#x5916;&#x90E8;&#x667A;&#x80FD;&#x8BE6;&#x60C5;&#x9762;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;    */
 
-&quot;pid_status_redge_1&quot; = &quot;&#x5F00;&#x706F;&quot;;            /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI*/
-&quot;pid_status_fedge_0&quot; = &quot;&#x5173;&#x706F;&quot;;            /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI*/
-&quot;pid_status1_redge_1&quot; = &quot;&#x4E3B;&#x706F;&#x5F00;&quot;;         /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI*/
-&quot;pid_status2_redge_1&quot; = &quot;&#x591C;&#x706F;&#x5F00;&quot;;         /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI*/
+&quot;pid_status_redge_1&quot; = &quot;&#x5F00;&#x706F;&quot;;                  /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
+&quot;pid_status_fedge_0&quot; = &quot;&#x5173;&#x706F;&quot;;                  /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
+&quot;pid_status1_redge_1&quot; = &quot;&#x4E3B;&#x706F;&#x5F00;&quot;;               /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
+&quot;pid_status2_redge_1&quot; = &quot;&#x591C;&#x706F;&#x5F00;&quot;;               /**&lt;&#x8054;&#x52A8;&#x6761;&#x4EF6;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
 
-&quot;pid_onoff_1&quot; = &quot;&#x5F00;&#x706F;&quot;;                   /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI*/
-&quot;pid_onoff_0&quot; = &quot;&#x5173;&#x706F;&quot;;                   /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI*/
-&quot;pid_onoff1_1&quot; = &quot;&#x5F00;&#x4E3B;&#x706F;&quot;;                /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI*/
-&quot;pid_onoff2_1&quot; = &quot;&#x5F00;&#x591C;&#x706F;&quot;;                /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI*/
+&quot;pid_onoff_1&quot; = &quot;&#x5F00;&#x706F;&quot;;                         /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
+&quot;pid_onoff_0&quot; = &quot;&#x5173;&#x706F;&quot;;                         /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
+&quot;pid_onoff1_1&quot; = &quot;&#x5F00;&#x4E3B;&#x706F;&quot;;                      /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
+&quot;pid_onoff2_1&quot; = &quot;&#x5F00;&#x591C;&#x706F;&quot;;                      /**&lt;&#x8054;&#x52A8;&#x6267;&#x884C;UI          &#x5916;&#x90E8;&#x667A;&#x80FD;UI&#x663E;&#x793A;&#x65F6;&#x4F7F;&#x7528;&#x3002;         */
 </code></pre>
 
                                 
@@ -443,7 +504,7 @@ pod &apos;CocoaAsyncSocket&apos;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.集成SDK","level":"1.2","depth":1,"next":{"title":"2.用户管理","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"数据缓存","level":"1.3.1","depth":2,"path":"part2/2.1.md","ref":"part2/2.1.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/README.md","mtime":"2019-08-29T08:12:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T08:15:34.670Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.集成SDK","level":"1.2","depth":1,"next":{"title":"2.用户管理","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"数据缓存","level":"1.3.1","depth":2,"path":"part2/2.1.md","ref":"part2/2.1.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/README.md","mtime":"2019-10-10T02:06:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-11T01:17:05.106Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

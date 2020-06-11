@@ -460,6 +460,17 @@ typedef void(^APDeviceBindCallbackHandling)(UDPStateType state,NSString *did);
  */
 - (void)startToBindDevice:(WIFIDeviceInfo *)deviceInfo wifiName:(NSString *)wifiName password:(NSString*)password andLimitTime:(NSInteger)time callbackStatus:(DeviceBindStatusCallbackHandling)blockStatusHandling callback:(DeviceBindCallbackHandling)blockHandling;
 
+/**
+*  &#x914D;&#x7F51;&#xFF08;wifi&#x5355;&#x54C1;&#x7EC4;&#xFF09;                 &#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x624B;&#x673A;&#x8054;&#x7F51;&#x72B6;&#x6001;&#x662F;WIFI(&#x8BBE;&#x5907;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x623F;&#x95F4;&#x5185;)
+*  @param pidsArr                  &#x914D;&#x7F51;&#x7684;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#x96C6;&#x5408;
+*  @param wifiName                 Wifi&#x540D;&#x79F0;
+*  @param password                 Wifi&#x5BC6;&#x7801;
+*  @param time                     &#x8BBE;&#x7F6E;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x914D;&#x7F51;&#x65F6;&#x95F4;&#xFF08;&#x5355;&#x4F4D;&#x4E3A;&#x6BEB;&#x79D2;&#xFF09;
+*  @param blockStatusHandling      &#x914D;&#x7F51;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x7684;&#x56DE;&#x8C03;
+*  @param blockHandling            &#x914D;&#x7F51;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#xFF08;&#x5305;&#x542B;&#x72B6;&#x6001;&#x53CA;&#x8BBE;&#x5907;did&#xFF09;
+*/
+
+- (void)startToBindDeviceArr:(NSArray *)pidsArr wifiName:(NSString *)wifiName password:(NSString*)password andLimitTime:(NSInteger)time callbackStatus:(DeviceBindStatusCallbackHandling)blockStatusHandling callback:(DeviceBindCallbackHandling)blockHandling;
 
 /**
 *  &#x914D;&#x7F51;&#xFF08;&#x7F51;&#x5173;&#x84DD;&#x7259;&#x914D;&#x7F51;&#xFF09;                &#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x624B;&#x673A;&#x8054;&#x7F51;&#x72B6;&#x6001;&#x662F;WIFI
@@ -561,7 +572,7 @@ typedef void(^APDeviceBindCallbackHandling)(UDPStateType state,NSString *did);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"WIFI设备配网","level":"1.4.2","depth":2,"next":{"title":"4.家庭管理","level":"1.5","depth":1,"path":"part4/README.md","ref":"part4/README.md","articles":[]},"previous":{"title":"产品列表","level":"1.4.1","depth":2,"path":"part3/3.1.md","ref":"part3/3.1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part3/3.2.md","mtime":"2019-10-10T02:29:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-11T01:17:05.106Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"WIFI设备配网","level":"1.4.2","depth":2,"next":{"title":"4.家庭管理","level":"1.5","depth":1,"path":"part4/README.md","ref":"part4/README.md","articles":[]},"previous":{"title":"产品列表","level":"1.4.1","depth":2,"path":"part3/3.1.md","ref":"part3/3.1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part3/3.2.md","mtime":"2019-11-05T07:52:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-11T06:43:54.038Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
