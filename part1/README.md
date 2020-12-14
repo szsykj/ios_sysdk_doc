@@ -14,7 +14,7 @@ pod 'SAMKeychain'
 pod 'MQTTClient'
 pod 'MJExtension'
 pod 'AliyunOSSiOS'
-pod 'Realm'
+pod 'Realm','~> 3.18.0'
 pod 'AFNetworking', '~> 4.0'
 pod 'CocoaAsyncSocket'
 pod 'Reachability'
@@ -49,8 +49,6 @@ BSSID: "00:00:00:00:00:00"
     [SYWHOUDPManager shareInstance].deviceType = 1;    //0:测试版设备  1:正式版本设备  2:全部
     [SYSDKConfig defaultConfig].hasVendors = YES;      //是否支持多厂商设备配网
     [SYSDKConfig defaultConfig].AppId = APPID;          //App在后台注册时产生的key，
-    
-    
     return YES;
 }
 ```
